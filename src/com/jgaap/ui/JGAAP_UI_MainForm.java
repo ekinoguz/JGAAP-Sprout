@@ -140,6 +140,46 @@ public class JGAAP_UI_MainForm extends javax.swing.JFrame {
 		UpdateCanonicizerDocTypeComboBox();
 		updateDistanceListUseability();
 
+		/* ekinoguz - begin */
+		this.BatchLoadMenuItemActionPerformed(null);
+		
+		
+		CanonicizersPanel_CanonicizerListBox.setSelectedIndex(1);
+		this.AddCanonicizerSelection();
+		CanonicizersPanel_CanonicizerListBox.setSelectedIndex(2);
+		this.AddCanonicizerSelection();
+		CanonicizersPanel_CanonicizerListBox.setSelectedIndex(5);
+		this.AddCanonicizerSelection();
+		CanonicizersPanel_CanonicizerListBox.setSelectedIndex(6);
+		this.AddCanonicizerSelection();
+		CanonicizersPanel_CanonicizerListBox.setSelectedIndex(7);
+		this.AddCanonicizerSelection();
+		EventSetsPanel_EventSetListBox.setSelectedIndex(36); // UniqueWordsCounterEventDriver
+		this.AddEventSetSelection();
+		EventSetsPanel_EventSetListBox.setSelectedIndex(25); // SentenceCounterEventDriver
+		this.AddEventSetSelection();
+		EventSetsPanel_EventSetListBox.setSelectedIndex(41); // WordCounterEventDriver
+		this.AddEventSetSelection();
+		EventSetsPanel_EventSetListBox.setSelectedIndex(35); // SyllableCounterEventDriver
+		this.AddEventSetSelection();
+		EventSetsPanel_EventSetListBox.setSelectedIndex(4); // CharCounterEventDriver
+		this.AddEventSetSelection();
+		EventSetsPanel_EventSetListBox.setSelectedIndex(9); // FleschReadingEaseScoreEventDriver
+		this.AddEventSetSelection();
+		EventSetsPanel_EventSetListBox.setSelectedIndex(10); // GunningFogIndexEventDriver
+		this.AddEventSetSelection();
+		EventSetsPanel_EventSetListBox.setSelectedIndex(13); // LetterCounterEventDriver
+		this.AddEventSetSelection();
+		
+		AnalysisMethodPanel_AnalysisMethodsListBox.setSelectedIndex(16);
+		this.AddAnalysisMethodSelection();
+		
+		this.Next_ButtonActionPerformed(null);
+		this.Next_ButtonActionPerformed(null);
+		this.Next_ButtonActionPerformed(null);
+		this.Next_ButtonActionPerformed(null);
+		this.Next_ButtonActionPerformed(null);
+		/* ekinoguz - end */
 		// DefaultMutableTreeNode top = new
 		// DefaultMutableTreeNode("The Java Series");
 	}
@@ -2640,10 +2680,15 @@ public class JGAAP_UI_MainForm extends javax.swing.JFrame {
 
 	private void BatchLoadMenuItemActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_BatchLoadMenuItemActionPerformed
 		FileChoser = new JFileChooser(filepath);
-		int choice = FileChoser.showOpenDialog(JGAAP_UI_MainForm.this);
-		if (choice == JFileChooser.APPROVE_OPTION) {
+		//int choice = FileChoser.showOpenDialog(JGAAP_UI_MainForm.this);
+		
+
+		/* ekinoguz - begin */
+		//if (choice == JFileChooser.APPROVE_OPTION) {
 			try {
-				filepath = FileChoser.getSelectedFile().getCanonicalPath();
+				//filepath = FileChoser.getSelectedFile().getCanonicalPath();
+				//filepath = "/Users/ekinoguz/Dropbox/UCI-Work/Mish-JGAAP/JGAAP-Test/10-authors-splitted.csv";
+				filepath = "/Users/ekinoguz/Dropbox/UCI-Work/Mish-JGAAP/JGAAP-Test/10-authors-splitted.csv";
 				List<List<String>> DocumentCSVs = CSVIO.readCSV(filepath);
 				for (int i = 0; i < DocumentCSVs.size(); i++) {
 					JGAAP_API.addDocument(DocumentCSVs.get(i).get(1),
@@ -2658,7 +2703,7 @@ public class JGAAP_UI_MainForm extends javax.swing.JFrame {
 				JOptionPane.showMessageDialog(this, e.getMessage(),
 						"JGAAP Error", JOptionPane.ERROR_MESSAGE);
 			}
-		}
+		//}
 	}// GEN-LAST:event_BatchLoadMenuItemActionPerformed
 
 	private void BatchSaveMenuItemActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_BatchSaveMenuItemActionPerformed

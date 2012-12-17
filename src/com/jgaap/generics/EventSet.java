@@ -100,6 +100,12 @@ public class EventSet implements Iterable<Event> {
     	this.events.addAll(eventSet.events);
     }
 
+    /* ekinoguz - begin */
+    public boolean removeEvent(Event event){
+    	return events.remove(event);
+    }
+    /* ekinoguz - end */
+    
     /** return the Author associated with any EventSet */
     public String getAuthor() {
         return author;

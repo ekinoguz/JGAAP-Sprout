@@ -44,6 +44,9 @@ public class JGAAP {
      */
     private static void createAndShowGUI() {
     	JGAAP_UI_MainForm gui = new JGAAP_UI_MainForm();
+    	/* ekinoguz - begin */
+    	gui.setSize(1024, 668);
+    	/* ekinoguz - end */
     	gui.setVisible(true);
     }
 
