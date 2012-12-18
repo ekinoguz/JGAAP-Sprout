@@ -5,7 +5,7 @@ import com.jgaap.generics.EventDriver;
 import com.jgaap.generics.EventGenerationException;
 import com.jgaap.generics.EventSet;
 
-public class WordCounterEventDriver extends EventDriver {
+public class Writeprint_WordCounterEventDriver extends EventDriver {
 
 	/* ======
 	 * fields
@@ -26,7 +26,7 @@ public class WordCounterEventDriver extends EventDriver {
 	/**
 	 * Default sentence counter event driver constructor.
 	 */
-	public WordCounterEventDriver() {
+	public Writeprint_WordCounterEventDriver() {
 		wordsDriver = new NaiveWordEventDriver();
 	}
 	
@@ -36,7 +36,7 @@ public class WordCounterEventDriver extends EventDriver {
 	 */
 	
 	public String displayName() {
-		return "Word count";
+		return "Writeprint_Word count";
 	}
 
 	public String tooltipText() {
@@ -44,13 +44,13 @@ public class WordCounterEventDriver extends EventDriver {
 	}
 
 	public boolean showInGUI() {
-		return true;
+		return false;
 	}
 
 	public double getValue(char[] text) throws EventGenerationException {
 		return wordsDriver.createEventSet(text).size();
 	}
-
+	
 	@Override
 	public EventSet createEventSet(char[] text) throws EventGenerationException {
 		EventSet res = new EventSet();

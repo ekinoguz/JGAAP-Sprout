@@ -1,11 +1,8 @@
 package com.jgaap.eventDrivers;
 
-import com.jgaap.generics.Event;
-import com.jgaap.generics.EventDriver;
-import com.jgaap.generics.EventGenerationException;
-import com.jgaap.generics.EventSet;
+import com.jgaap.generics.*;
 
-public class WordCounterEventDriver extends EventDriver {
+public class Writeprint_LetterCounterEventDriver1 extends EventDriver {
 
 	/* ======
 	 * fields
@@ -13,11 +10,11 @@ public class WordCounterEventDriver extends EventDriver {
 	 */
 	
 	/**
-	 * Event driver to be used for word count.
+	 * Event driver to be used for character count.
 	 */
-	private EventDriver wordsDriver;
+	private EventDriver charDriver;
 	
-	
+
 	/* ============
 	 * constructors
 	 * ============
@@ -26,8 +23,8 @@ public class WordCounterEventDriver extends EventDriver {
 	/**
 	 * Default sentence counter event driver constructor.
 	 */
-	public WordCounterEventDriver() {
-		wordsDriver = new NaiveWordEventDriver();
+	public Writeprint_LetterCounterEventDriver1() {
+		charDriver = new CharacterEventDriver();
 	}
 	
 	/* ==================
@@ -36,11 +33,11 @@ public class WordCounterEventDriver extends EventDriver {
 	 */
 	
 	public String displayName() {
-		return "Word count";
+		return "_WP_Character Count";
 	}
 
 	public String tooltipText() {
-		return "The total number of words";
+		return "The total number of letters.";
 	}
 
 	public boolean showInGUI() {
@@ -48,11 +45,17 @@ public class WordCounterEventDriver extends EventDriver {
 	}
 
 	public double getValue(char[] text) throws EventGenerationException {
-		return wordsDriver.createEventSet(text).size();
+		EventSet chars = charDriver.createEventSet(text);
+		for (int i=chars.size()-1; i>=0; i--) {
+			Event e = chars.eventAt(i);
+			if (!e.toString().matches("[A-Za-z]"))
+				chars.removeEvent(e);
+		}
+		return chars.size();
 	}
-
-	@Override
+	
 	public EventSet createEventSet(char[] text) throws EventGenerationException {
+		
 		EventSet res = new EventSet();
 		res.addEvent(new Event(getValue(text)+"", this));
 		//System.out.println(getValue(text));
