@@ -49,7 +49,14 @@ public class NF_WordCounterEventDriver extends NumericEventDriver {
 	}
 
 	public double getValue(char[] text) throws EventGenerationException {
-		return wordsDriver.createEventSet(text).size();
+		EventDriver sen = new SentenceEventDriver();
+		double total = 1;
+		try {
+			total = sen.createEventSet(text).size();
+		} catch (Exception e) {
+			System.out.println("NF_WordCounterEventDriver in getValue exception: " + e);
+		}
+		return Math.round((wordsDriver.createEventSet(text).size())/total);
 	}
 
 	@Override

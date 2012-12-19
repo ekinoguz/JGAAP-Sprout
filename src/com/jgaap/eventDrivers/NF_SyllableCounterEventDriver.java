@@ -50,11 +50,18 @@ public class NF_SyllableCounterEventDriver extends NumericEventDriver {
 	}
 
 	public double getValue(char[] text) throws EventGenerationException {
+		EventDriver wordsDriver = new NaiveWordEventDriver();
+		double total = 1;
+		try{
+			total = wordsDriver.createEventSet(text).size();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 		EventSet syllables = syllablesDriver.createEventSet(text);
 		int i,sum = 0;
 		for (i=0; i<syllables.size(); i++)
 			sum += Integer.parseInt(syllables.eventAt(i).toString());
-		return sum; 
+		return Math.round(sum/total); 
 	}
 	
 	public NumericEventSet createEventSet(char[] text) throws EventGenerationException {
