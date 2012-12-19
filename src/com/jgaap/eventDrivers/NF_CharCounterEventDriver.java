@@ -1,11 +1,11 @@
 package com.jgaap.eventDrivers;
 
 import com.jgaap.generics.Event;
-import com.jgaap.generics.EventDriver;
 import com.jgaap.generics.EventGenerationException;
-import com.jgaap.generics.EventSet;
+import com.jgaap.generics.NumericEventDriver;
+import com.jgaap.generics.NumericEventSet;
 
-public class NF_CharCounterEventDriver extends EventDriver {
+public class NF_CharCounterEventDriver extends NumericEventDriver {
 
 	/* ======
 	 * fields
@@ -51,9 +51,9 @@ public class NF_CharCounterEventDriver extends EventDriver {
 		return new String(text).length();
 	}
 	
-	public EventSet createEventSet(char[] text) throws EventGenerationException {
+	public NumericEventSet createEventSet(char[] text) throws EventGenerationException {
 		
-		EventSet res = new EventSet();
+		NumericEventSet res = new NumericEventSet();
 		res.addEvent(new Event(getValue(text)+"", this));
 		//System.out.println(getValue(text));
 		return res;

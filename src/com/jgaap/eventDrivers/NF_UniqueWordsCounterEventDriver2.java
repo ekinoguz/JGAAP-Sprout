@@ -5,8 +5,10 @@ import com.jgaap.generics.EventDriver;
 import com.jgaap.generics.EventGenerationException;
 import com.jgaap.generics.EventHistogram;
 import com.jgaap.generics.EventSet;
+import com.jgaap.generics.NumericEventDriver;
+import com.jgaap.generics.NumericEventSet;
 
-public class NF_UniqueWordsCounterEventDriver2 extends EventDriver {
+public class NF_UniqueWordsCounterEventDriver2 extends NumericEventDriver {
 
 	/* ======
 	 * fields
@@ -54,8 +56,9 @@ public class NF_UniqueWordsCounterEventDriver2 extends EventDriver {
 	}
 	
 	@Override
-	public EventSet createEventSet(char[] text) throws EventGenerationException {
-		EventSet res = new EventSet();
+	public NumericEventSet createEventSet(char[] text) throws EventGenerationException {
+		
+		NumericEventSet res = new NumericEventSet();
 		res.addEvent(new Event(getValue(text)+"", this));
 		//System.out.println(getValue(text));
 		return res;
