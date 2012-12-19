@@ -3,7 +3,7 @@ package com.jgaap.eventDrivers;
 import com.jgaap.eventDrivers.WordSyllablesEventDriver;
 import com.jgaap.generics.*;
 
-public class SyllableCounterEventDriver extends EventDriver {
+public class NF_SyllableCounterEventDriver extends EventDriver {
 
 	/* ======
 	 * fields
@@ -24,7 +24,7 @@ public class SyllableCounterEventDriver extends EventDriver {
 	/**
 	 * Default syllables counter event driver constructor.
 	 */
-	public SyllableCounterEventDriver() {
+	public NF_SyllableCounterEventDriver() {
 		syllablesDriver = new WordSyllablesEventDriver();
 	}
 	
@@ -34,7 +34,7 @@ public class SyllableCounterEventDriver extends EventDriver {
 	 */
 	
 	public String displayName() {
-		return "Syllables count";
+		return "9F_Syllables count";
 	}
 
 	public String tooltipText() {

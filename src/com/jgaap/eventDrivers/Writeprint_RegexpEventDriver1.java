@@ -23,8 +23,9 @@ public class Writeprint_RegexpEventDriver1 extends EventDriver {
 	}
 
 	public String tooltipText() {
-		return "The frequencies of all distinct matches of a given regular expression in the document. For instance, the regular " +
-				"expression \"\\d\" will generate the features: \"0\", \"1\", ... \"9\".";
+		//return "The frequencies of all distinct matches of a given regular expression in the document. For instance, the regular " +
+		//		"expression \"\\d\" will generate the features: \"0\", \"1\", ... \"9\".";
+		return "The frequencies of all distinct matches of a given regular expression in the document.";
 	}
 
 	public boolean showInGUI() {

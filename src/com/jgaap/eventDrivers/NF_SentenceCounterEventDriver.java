@@ -1,9 +1,11 @@
 package com.jgaap.eventDrivers;
 
-import com.jgaap.eventDrivers.*;
-import com.jgaap.generics.*;
+import com.jgaap.generics.Event;
+import com.jgaap.generics.EventDriver;
+import com.jgaap.generics.EventGenerationException;
+import com.jgaap.generics.EventSet;
 
-public class SentenceCounterEventDriver extends EventDriver {
+public class NF_SentenceCounterEventDriver extends EventDriver {
 
 	/* ======
 	 * fields
@@ -24,7 +26,7 @@ public class SentenceCounterEventDriver extends EventDriver {
 	/**
 	 * Default sentence counter event driver constructor.
 	 */
-	public SentenceCounterEventDriver() {
+	public NF_SentenceCounterEventDriver() {
 		sentencesDriver = new SentenceEventDriver();
 	}
 	
@@ -34,7 +36,7 @@ public class SentenceCounterEventDriver extends EventDriver {
 	 */
 	
 	public String displayName() {
-		return "Sentence count";
+		return "9F_Sentence count";
 	}
 
 	public String tooltipText() {

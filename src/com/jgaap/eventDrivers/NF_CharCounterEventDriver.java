@@ -5,7 +5,7 @@ import com.jgaap.generics.EventDriver;
 import com.jgaap.generics.EventGenerationException;
 import com.jgaap.generics.EventSet;
 
-public class CharCounterEventDriver extends EventDriver {
+public class NF_CharCounterEventDriver extends EventDriver {
 
 	/* ======
 	 * fields
@@ -26,7 +26,7 @@ public class CharCounterEventDriver extends EventDriver {
 	/**
 	 * Default sentence counter event driver constructor.
 	 */
-	public CharCounterEventDriver() {
+	public NF_CharCounterEventDriver() {
 		charDriver = new CharacterEventDriver();
 	}
 	
@@ -36,7 +36,7 @@ public class CharCounterEventDriver extends EventDriver {
 	 */
 	
 	public String displayName() {
-		return "Character count";
+		return "9F_Character count";
 	}
 
 	public String tooltipText() {

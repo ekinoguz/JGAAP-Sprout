@@ -1,9 +1,8 @@
 package com.jgaap.eventDrivers;
 
-import com.jgaap.eventDrivers.*;
 import com.jgaap.generics.*;
 
-public class GunningFogIndexEventDriver extends EventDriver {
+public class NF_FleschReadingEaseScoreEventDriver extends EventDriver {
 
 	/* ======
 	 * fields
@@ -13,11 +12,11 @@ public class GunningFogIndexEventDriver extends EventDriver {
 	/**
 	 * Event drivers to be used.
 	 */
-	private WordCounterEventDriver wordCounter;
+	private NF_WordCounterEventDriver wordCounter;
 	
-	private SentenceCounterEventDriver sentenceCounter;
+	private NF_SentenceCounterEventDriver sentenceCounter;
 	
-	private EventDriver syllablesDriver;
+	private NF_SyllableCounterEventDriver syllablesCounter;
 	
 	
 	/* ============
@@ -28,10 +27,10 @@ public class GunningFogIndexEventDriver extends EventDriver {
 	/**
 	 * Default Gunning-Fog readability index event driver constructor.
 	 */
-	public GunningFogIndexEventDriver() {
-		wordCounter = new WordCounterEventDriver();
-		sentenceCounter = new SentenceCounterEventDriver();
-		syllablesDriver = new WordSyllablesEventDriver();
+	public NF_FleschReadingEaseScoreEventDriver() {
+		wordCounter = new NF_WordCounterEventDriver();
+		sentenceCounter = new NF_SentenceCounterEventDriver();
+		syllablesCounter = new NF_SyllableCounterEventDriver();
 	}
 	
 	/* ==================
@@ -40,11 +39,11 @@ public class GunningFogIndexEventDriver extends EventDriver {
 	 */
 	
 	public String displayName() {
-		return "Gunning-Fog Readability Index";
+		return "9F_Flesch Reading Ease Score";
 	}
 
 	public String tooltipText() {
-		return "Gunning-Fog Readability Index";
+		return "Flesch Reading Ease Score";
 	}
 
 	public boolean showInGUI() {
@@ -54,15 +53,10 @@ public class GunningFogIndexEventDriver extends EventDriver {
 	public double getValue(char[] text) throws EventGenerationException {
 		double wordCount = wordCounter.getValue(text);
 		double sentenceCount = sentenceCounter.getValue(text);
-		EventSet syllables = syllablesDriver.createEventSet(text);
-		for (int i=syllables.size()-1; i>=0; i--) {
-			if (Integer.parseInt(syllables.eventAt(i).toString()) < 3)
-				syllables.removeEvent(syllables.eventAt(i));
-		}
-		double complexWordsCount = syllables.size();
-		return 0.4*(wordCount/sentenceCount + 100*complexWordsCount/wordCount);
+		double syllableCount = syllablesCounter.getValue(text);
+		return 206.835 - 1.015*wordCount/sentenceCount - 84.6*syllableCount/wordCount;
 	}
-
+	
 	@Override
 	public EventSet createEventSet(char[] text) throws EventGenerationException {
 		EventSet res = new EventSet();

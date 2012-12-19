@@ -2,7 +2,7 @@ package com.jgaap.eventDrivers;
 
 import com.jgaap.generics.*;
 
-public class LetterCounterEventDriver extends EventDriver {
+public class NF_LetterCounterEventDriver extends EventDriver {
 
 	/* ======
 	 * fields
@@ -23,7 +23,7 @@ public class LetterCounterEventDriver extends EventDriver {
 	/**
 	 * Default sentence counter event driver constructor.
 	 */
-	public LetterCounterEventDriver() {
+	public NF_LetterCounterEventDriver() {
 		charDriver = new CharacterEventDriver();
 	}
 	
@@ -33,7 +33,7 @@ public class LetterCounterEventDriver extends EventDriver {
 	 */
 	
 	public String displayName() {
-		return "Letter count";
+		return "9F_Letter count";
 	}
 
 	public String tooltipText() {

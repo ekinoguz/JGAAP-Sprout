@@ -3,9 +3,10 @@ package com.jgaap.eventDrivers;
 import com.jgaap.generics.Event;
 import com.jgaap.generics.EventDriver;
 import com.jgaap.generics.EventGenerationException;
+import com.jgaap.generics.EventHistogram;
 import com.jgaap.generics.EventSet;
 
-public class WordCounterEventDriver extends EventDriver {
+public class NF_UniqueWordsCounterEventDriver2 extends EventDriver {
 
 	/* ======
 	 * fields
@@ -15,7 +16,7 @@ public class WordCounterEventDriver extends EventDriver {
 	/**
 	 * Event driver to be used for word count.
 	 */
-	private EventDriver wordsDriver;
+	private EventDriver wordCounter;
 	
 	
 	/* ============
@@ -24,10 +25,10 @@ public class WordCounterEventDriver extends EventDriver {
 	 */
 	
 	/**
-	 * Default sentence counter event driver constructor.
+	 * Default unique words counter event driver constructor.
 	 */
-	public WordCounterEventDriver() {
-		wordsDriver = new NaiveWordEventDriver();
+	public NF_UniqueWordsCounterEventDriver2() {
+		wordCounter = new NaiveWordEventDriver();
 	}
 	
 	/* ==================
@@ -36,11 +37,11 @@ public class WordCounterEventDriver extends EventDriver {
 	 */
 	
 	public String displayName() {
-		return "Word count";
+		return "9F_Ratio of unique words to total number of words in the document.";
 	}
 
 	public String tooltipText() {
-		return "The total number of words";
+		return "The total number of unique words";
 	}
 
 	public boolean showInGUI() {
@@ -48,9 +49,10 @@ public class WordCounterEventDriver extends EventDriver {
 	}
 
 	public double getValue(char[] text) throws EventGenerationException {
-		return wordsDriver.createEventSet(text).size();
+		EventSet words = wordCounter.createEventSet(text);		
+		return (new EventHistogram(words)).getNTypes();
 	}
-
+	
 	@Override
 	public EventSet createEventSet(char[] text) throws EventGenerationException {
 		EventSet res = new EventSet();

@@ -1,9 +1,12 @@
 package com.jgaap.eventDrivers;
 
-import com.jgaap.eventDrivers.*;
-import com.jgaap.generics.*;
+import com.jgaap.generics.Event;
+import com.jgaap.generics.EventDriver;
+import com.jgaap.generics.EventGenerationException;
+import com.jgaap.generics.EventHistogram;
+import com.jgaap.generics.EventSet;
 
-public class UniqueWordsCounterEventDriver extends EventDriver {
+public class NF_UniqueWordsCounterEventDriver1 extends EventDriver {
 
 	/* ======
 	 * fields
@@ -24,7 +27,7 @@ public class UniqueWordsCounterEventDriver extends EventDriver {
 	/**
 	 * Default unique words counter event driver constructor.
 	 */
-	public UniqueWordsCounterEventDriver() {
+	public NF_UniqueWordsCounterEventDriver1() {
 		wordCounter = new NaiveWordEventDriver();
 	}
 	
@@ -34,7 +37,7 @@ public class UniqueWordsCounterEventDriver extends EventDriver {
 	 */
 	
 	public String displayName() {
-		return "Unique words count";
+		return "9F_Number of unique words in the document";
 	}
 
 	public String tooltipText() {
