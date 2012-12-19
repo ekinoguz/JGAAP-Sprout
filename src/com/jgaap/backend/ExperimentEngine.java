@@ -56,11 +56,12 @@ public class ExperimentEngine {
 	 *            the identifier given to this experiment
 	 * @return the location of where the file will be written
 	 */
+	/* ekinoguz - begin */
 	public static String fileNameGen(List<String> canons, String[] events,
 			String[] eventCullers, String analysis, String experimentName,
 			String number) {
-		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		Date date = new Date();
+		//DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		//Date date = new Date();
 		Iterator<String> iterator = canons.iterator();
 		StringBuilder canonNameBuilder = new StringBuilder();
 		while (iterator.hasNext()) {
@@ -83,19 +84,24 @@ public class ExperimentEngine {
 		String eventName = eventNameBuilder.toString().trim();
 		if(cullerName.isEmpty())
 			cullerName = "none";
-		String path = JGAAPConstants.JGAAP_TMPDIR
+		/*String path = JGAAPConstants.JGAAP_TMPDIR
 				+ canonName.replace("/", "\\/") + "/"
 				+ eventName.trim().replace("/", "\\/") + "/"
 				+ cullerName.replace("/", "\\/") + "/"
 				+ analysis.trim().replace("/", "\\/") + "/";
+		*/
+		String path = JGAAPConstants.JGAAP_TMPDIR;
 		File file = new File(path);
 		boolean newDirs = file.mkdirs();
 		if (!newDirs) {
 			; // Nothing (check added to satisfy static analysis / show we are
 				// aware of this)
 		}
-		return (path + experimentName + number + dateFormat.format(date) + ".txt");
+		//return (path + experimentName + number + dateFormat.format(date) + ".txt");
+		String apath = canonName + "_" + eventName + "_" + cullerName + "_" + analysis.trim();
+		return (path + experimentName + number + apath + ".txt");
 	}
+	/* ekinoguz - end */
 
 	/**
 	 * This method will iterate a the rows of a csv file of experiments running
