@@ -35,3 +35,5 @@ ant build
 To launch the gui:
 
 ant run-gui
+
+ant cli -Dcli="-h es"

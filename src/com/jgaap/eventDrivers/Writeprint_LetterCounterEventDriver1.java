@@ -1,8 +1,13 @@
 package com.jgaap.eventDrivers;
 
-import com.jgaap.generics.*;
+import com.jgaap.generics.Event;
+import com.jgaap.generics.EventDriver;
+import com.jgaap.generics.EventGenerationException;
+import com.jgaap.generics.EventSet;
+import com.jgaap.generics.NumericEventDriver;
+import com.jgaap.generics.NumericEventSet;
 
-public class Writeprint_LetterCounterEventDriver1 extends EventDriver {
+public class Writeprint_LetterCounterEventDriver1 extends NumericEventDriver {
 
 	/* ======
 	 * fields
@@ -54,9 +59,10 @@ public class Writeprint_LetterCounterEventDriver1 extends EventDriver {
 		return chars.size();
 	}
 	
-	public EventSet createEventSet(char[] text) throws EventGenerationException {
+	@Override
+	public NumericEventSet createEventSet(char[] text) throws EventGenerationException {
 		
-		EventSet res = new EventSet();
+		NumericEventSet res = new NumericEventSet();
 		res.addEvent(new Event(getValue(text)+"", this));
 		//System.out.println(getValue(text));
 		return res;

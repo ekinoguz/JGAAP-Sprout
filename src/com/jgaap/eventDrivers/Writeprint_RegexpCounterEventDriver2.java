@@ -4,7 +4,7 @@ import java.util.regex.*;
 
 import com.jgaap.generics.*;
 
-public class Writeprint_RegexpCounterEventDriver2 extends EventDriver {
+public class Writeprint_RegexpCounterEventDriver2 extends NumericEventDriver {
 
 	/* ======
 	 * fields
@@ -47,9 +47,10 @@ public class Writeprint_RegexpCounterEventDriver2 extends EventDriver {
 		return Math.round(1000 * count/total);
 	}
 	
-	public EventSet createEventSet(char[] text) throws EventGenerationException {
+	@Override
+	public NumericEventSet createEventSet(char[] text) throws EventGenerationException {
 		
-		EventSet res = new EventSet();
+		NumericEventSet res = new NumericEventSet();
 		res.addEvent(new Event(getValue(text)+"", this));
 		//System.out.println(getValue(text));
 		return res;
