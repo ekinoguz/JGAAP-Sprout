@@ -154,7 +154,7 @@ public class JGAAP_UI_MainForm extends javax.swing.JFrame {
 		this.AddCanonicizerSelection();
 		CanonicizersPanel_CanonicizerListBox.setSelectedIndex(7);
 		this.AddCanonicizerSelection();
-		EventSetsPanel_EventSetListBox.setSelectedIndex(36); // UniqueWordsCounterEventDriver
+		/*EventSetsPanel_EventSetListBox.setSelectedIndex(36); // UniqueWordsCounterEventDriver
 		this.AddEventSetSelection();
 		EventSetsPanel_EventSetListBox.setSelectedIndex(25); // SentenceCounterEventDriver
 		this.AddEventSetSelection();
@@ -170,7 +170,7 @@ public class JGAAP_UI_MainForm extends javax.swing.JFrame {
 		this.AddEventSetSelection();
 		EventSetsPanel_EventSetListBox.setSelectedIndex(13); // LetterCounterEventDriver
 		this.AddEventSetSelection();
-		
+		*/
 		AnalysisMethodPanel_AnalysisMethodsListBox.setSelectedIndex(16);
 		this.AddAnalysisMethodSelection();
 		
