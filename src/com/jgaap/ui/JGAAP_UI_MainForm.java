@@ -171,6 +171,9 @@ public class JGAAP_UI_MainForm extends javax.swing.JFrame {
 		EventSetsPanel_EventSetListBox.setSelectedIndex(13); // LetterCounterEventDriver
 		this.AddEventSetSelection();
 		*/
+		EventSetsPanel_EventSetListBox.setSelectedIndex(0);
+		this.AddEventSetSelection();
+		
 		AnalysisMethodPanel_AnalysisMethodsListBox.setSelectedIndex(16);
 		this.AddAnalysisMethodSelection();
 		
@@ -2688,7 +2691,7 @@ public class JGAAP_UI_MainForm extends javax.swing.JFrame {
 			try {
 				//filepath = FileChoser.getSelectedFile().getCanonicalPath();
 				//filepath = "/Users/ekinoguz/Dropbox/UCI-Work/Mish-JGAAP/JGAAP-Test/10-authors-splitted.csv";
-				filepath = "/Users/ekinoguz/Dropbox/UCI-Work/Mish-JGAAP/JGAAP-Test/10-authors-splitted.csv";
+				//filepath = "/Users/ekinoguz/Dropbox/UCI-Work/Mish-JGAAP/JGAAP-Test/10-authors-splitted.csv";
 				List<List<String>> DocumentCSVs = CSVIO.readCSV(filepath);
 				for (int i = 0; i < DocumentCSVs.size(); i++) {
 					JGAAP_API.addDocument(DocumentCSVs.get(i).get(1),

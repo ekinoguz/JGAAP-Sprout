@@ -41,11 +41,11 @@ import com.jstylo.FrequencyEventsExtended;
  * 
  * @author Ariel Stolerman
  */
-public class Writeprint_ListEventDriver1 extends EventDriver {
+public class Writeprint_ListEventDriver4 extends EventDriver {
 
 	@Override
 	public String displayName() {
-		return "_WP_List-based event driver, Special Characters";
+		return "_WP_List-based event driver, Misspelled Words";
 	}
 
 	@Override
@@ -93,8 +93,8 @@ public class Writeprint_ListEventDriver1 extends EventDriver {
 	}
 
 	private EventDriver underlyingEvents = new NaiveWordEventDriver();;
-	private String filename = "com/jstylo/resources/writeprints_special_chars.txt";
-	private boolean sort = false;
+	private String filename = "com/jstylo/resources/writeprints_misspellings.txt";
+	private boolean sort = true;
 	private boolean whiteList = true;
 	private boolean keepLexiconInMem = true;
 	private List<String> lexicon;
