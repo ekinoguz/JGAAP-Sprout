@@ -141,7 +141,7 @@ public class JGAAP_UI_MainForm extends javax.swing.JFrame {
 		updateDistanceListUseability();
 
 		/* ekinoguz - begin */
-		this.BatchLoadMenuItemActionPerformed(null);
+		//this.BatchLoadMenuItemActionPerformed(null);
 		
 		
 		CanonicizersPanel_CanonicizerListBox.setSelectedIndex(1);
