@@ -1,0 +1,210 @@
+processed-0GHsxjCk-Ynzx4Ihj8tjPQ-clear-rct-only-40-test-1 /Users/ekinoguz/Dropbox/UCI-Work/Mish-JGAAP/fourty-random-sample/test-set/processed-0GHsxjCk-Ynzx4Ihj8tjPQ-clear-rct-only-40-test-1
+Canonicizers: 
+Normalize ASCII, Strip Null Characters 
+EventDrivers: 
+9F_Flesch Reading Ease Score 
+9F_Character count 
+9F_Gunning-Fog Readability Index 
+Analysis: 
+WEKA SMO f : false, v : -1, g : 0.01, e : 1, r : Polynomial, c : 1, n : normalize, o : false 
+1. author8 0.18181818181818182
+2. author1 0.16363636363636364
+3. author6 0.14545454545454545
+4. author10 0.12727272727272726
+5. author2 0.10909090909090909
+6. author9 0.09090909090909091
+7. author7 0.07272727272727272
+8. author3 0.05454545454545454
+9. author4 0.03636363636363636
+10. author5 0.01818181818181818
+
+
+processed-0juzbrgcLHqobdK-OZAyiw-clear-rct-only-40-test-1 /Users/ekinoguz/Dropbox/UCI-Work/Mish-JGAAP/fourty-random-sample/test-set/processed-0juzbrgcLHqobdK-OZAyiw-clear-rct-only-40-test-1
+Canonicizers: 
+Normalize ASCII, Strip Null Characters 
+EventDrivers: 
+9F_Flesch Reading Ease Score 
+9F_Character count 
+9F_Gunning-Fog Readability Index 
+Analysis: 
+WEKA SMO f : false, v : -1, g : 0.01, e : 1, r : Polynomial, c : 1, n : normalize, o : false 
+1. author10 0.18181818181818182
+2. author1 0.16363636363636364
+3. author2 0.12727272727272726
+3. author9 0.12727272727272726
+3. author8 0.12727272727272726
+6. author7 0.09090909090909091
+7. author3 0.07272727272727272
+8. author4 0.05454545454545454
+9. author5 0.03636363636363636
+10. author6 0.01818181818181818
+
+
+processed-2fN8mN7uUjOw-QqtcgYqXQ-clear-rct-only-40-test-1 /Users/ekinoguz/Dropbox/UCI-Work/Mish-JGAAP/fourty-random-sample/test-set/processed-2fN8mN7uUjOw-QqtcgYqXQ-clear-rct-only-40-test-1
+Canonicizers: 
+Normalize ASCII, Strip Null Characters 
+EventDrivers: 
+9F_Flesch Reading Ease Score 
+9F_Character count 
+9F_Gunning-Fog Readability Index 
+Analysis: 
+WEKA SMO f : false, v : -1, g : 0.01, e : 1, r : Polynomial, c : 1, n : normalize, o : false 
+1. author8 0.18181818181818182
+2. author10 0.16363636363636364
+3. author1 0.14545454545454545
+4. author2 0.12727272727272726
+5. author9 0.10909090909090909
+6. author7 0.09090909090909091
+7. author3 0.07272727272727272
+8. author4 0.05454545454545454
+9. author5 0.03636363636363636
+10. author6 0.01818181818181818
+
+
+processed-5aVByErCyBwi-cnx_iEJmg-clear-rct-only-40-test-1 /Users/ekinoguz/Dropbox/UCI-Work/Mish-JGAAP/fourty-random-sample/test-set/processed-5aVByErCyBwi-cnx_iEJmg-clear-rct-only-40-test-1
+Canonicizers: 
+Normalize ASCII, Strip Null Characters 
+EventDrivers: 
+9F_Flesch Reading Ease Score 
+9F_Character count 
+9F_Gunning-Fog Readability Index 
+Analysis: 
+WEKA SMO f : false, v : -1, g : 0.01, e : 1, r : Polynomial, c : 1, n : normalize, o : false 
+1. author1 0.18181818181818182
+2. author6 0.16363636363636364
+3. author10 0.14545454545454545
+4. author2 0.10909090909090909
+4. author9 0.10909090909090909
+4. author8 0.10909090909090909
+7. author7 0.07272727272727272
+8. author3 0.05454545454545454
+9. author4 0.03636363636363636
+10. author5 0.01818181818181818
+
+
+processed-65w6GtrNNlZDowVDAYGZFQ-clear-rct-only-40-test-1 /Users/ekinoguz/Dropbox/UCI-Work/Mish-JGAAP/fourty-random-sample/test-set/processed-65w6GtrNNlZDowVDAYGZFQ-clear-rct-only-40-test-1
+Canonicizers: 
+Normalize ASCII, Strip Null Characters 
+EventDrivers: 
+9F_Flesch Reading Ease Score 
+9F_Character count 
+9F_Gunning-Fog Readability Index 
+Analysis: 
+WEKA SMO f : false, v : -1, g : 0.01, e : 1, r : Polynomial, c : 1, n : normalize, o : false 
+1. author3 0.18181818181818182
+2. author6 0.16363636363636364
+3. author10 0.14545454545454545
+4. author1 0.12727272727272726
+5. author2 0.09090909090909091
+5. author9 0.09090909090909091
+5. author8 0.09090909090909091
+8. author7 0.05454545454545454
+9. author4 0.03636363636363636
+10. author5 0.01818181818181818
+
+
+processed-7clk7hJlh9U5Kkwq7IGLEw-clear-rct-only-40-test-1 /Users/ekinoguz/Dropbox/UCI-Work/Mish-JGAAP/fourty-random-sample/test-set/processed-7clk7hJlh9U5Kkwq7IGLEw-clear-rct-only-40-test-1
+Canonicizers: 
+Normalize ASCII, Strip Null Characters 
+EventDrivers: 
+9F_Flesch Reading Ease Score 
+9F_Character count 
+9F_Gunning-Fog Readability Index 
+Analysis: 
+WEKA SMO f : false, v : -1, g : 0.01, e : 1, r : Polynomial, c : 1, n : normalize, o : false 
+1. author3 0.18181818181818182
+2. author9 0.16363636363636364
+3. author10 0.14545454545454545
+4. author1 0.12727272727272726
+5. author8 0.10909090909090909
+6. author2 0.09090909090909091
+7. author7 0.07272727272727272
+8. author4 0.05454545454545454
+9. author5 0.03636363636363636
+10. author6 0.01818181818181818
+
+
+processed-7QZIAKmq_x8JEYDDSW801g-clear-rct-only-40-test-1 /Users/ekinoguz/Dropbox/UCI-Work/Mish-JGAAP/fourty-random-sample/test-set/processed-7QZIAKmq_x8JEYDDSW801g-clear-rct-only-40-test-1
+Canonicizers: 
+Normalize ASCII, Strip Null Characters 
+EventDrivers: 
+9F_Flesch Reading Ease Score 
+9F_Character count 
+9F_Gunning-Fog Readability Index 
+Analysis: 
+WEKA SMO f : false, v : -1, g : 0.01, e : 1, r : Polynomial, c : 1, n : normalize, o : false 
+1. author10 0.18181818181818182
+2. author1 0.16363636363636364
+3. author2 0.12727272727272726
+3. author9 0.12727272727272726
+3. author8 0.12727272727272726
+6. author7 0.09090909090909091
+7. author3 0.07272727272727272
+8. author4 0.05454545454545454
+9. author5 0.03636363636363636
+10. author6 0.01818181818181818
+
+
+processed-8-4W2kWgly4368CqomkfmA-clear-rct-only-40-test-1 /Users/ekinoguz/Dropbox/UCI-Work/Mish-JGAAP/fourty-random-sample/test-set/processed-8-4W2kWgly4368CqomkfmA-clear-rct-only-40-test-1
+Canonicizers: 
+Normalize ASCII, Strip Null Characters 
+EventDrivers: 
+9F_Flesch Reading Ease Score 
+9F_Character count 
+9F_Gunning-Fog Readability Index 
+Analysis: 
+WEKA SMO f : false, v : -1, g : 0.01, e : 1, r : Polynomial, c : 1, n : normalize, o : false 
+1. author10 0.18181818181818182
+2. author1 0.16363636363636364
+3. author2 0.12727272727272726
+3. author9 0.12727272727272726
+3. author8 0.12727272727272726
+6. author7 0.09090909090909091
+7. author3 0.07272727272727272
+8. author4 0.05454545454545454
+9. author5 0.03636363636363636
+10. author6 0.01818181818181818
+
+
+processed-8Q0xnxT-KrvCl2pQF1qsFQ-clear-rct-only-40-test-1 /Users/ekinoguz/Dropbox/UCI-Work/Mish-JGAAP/fourty-random-sample/test-set/processed-8Q0xnxT-KrvCl2pQF1qsFQ-clear-rct-only-40-test-1
+Canonicizers: 
+Normalize ASCII, Strip Null Characters 
+EventDrivers: 
+9F_Flesch Reading Ease Score 
+9F_Character count 
+9F_Gunning-Fog Readability Index 
+Analysis: 
+WEKA SMO f : false, v : -1, g : 0.01, e : 1, r : Polynomial, c : 1, n : normalize, o : false 
+1. author4 0.18181818181818182
+2. author10 0.16363636363636364
+3. author1 0.14545454545454545
+4. author2 0.10909090909090909
+4. author9 0.10909090909090909
+4. author8 0.10909090909090909
+7. author7 0.07272727272727272
+8. author3 0.05454545454545454
+9. author5 0.03636363636363636
+10. author6 0.01818181818181818
+
+
+processed-9VJa4yxtnLct0pN_1RcD_w-clear-rct-only-40-test-1 /Users/ekinoguz/Dropbox/UCI-Work/Mish-JGAAP/fourty-random-sample/test-set/processed-9VJa4yxtnLct0pN_1RcD_w-clear-rct-only-40-test-1
+Canonicizers: 
+Normalize ASCII, Strip Null Characters 
+EventDrivers: 
+9F_Flesch Reading Ease Score 
+9F_Character count 
+9F_Gunning-Fog Readability Index 
+Analysis: 
+WEKA SMO f : false, v : -1, g : 0.01, e : 1, r : Polynomial, c : 1, n : normalize, o : false 
+1. author9 0.18181818181818182
+2. author3 0.16363636363636364
+3. author10 0.14545454545454545
+4. author1 0.12727272727272726
+5. author8 0.10909090909090909
+6. author2 0.09090909090909091
+7. author7 0.07272727272727272
+8. author4 0.05454545454545454
+9. author5 0.03636363636363636
+10. author6 0.01818181818181818
+
+
