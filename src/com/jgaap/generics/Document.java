@@ -341,23 +341,21 @@ public class Document extends Parameterizable {
 		buffer.append(getFilePath() + "\n");
 		buffer.append("Canonicizers: \n");
 		if (canonicizers.isEmpty()) {
-			buffer.append("none");
+			buffer.append("\tnone\n");
 		} else {
 			for (Canonicizer canonicizer : canonicizers) {
-				buffer.append(canonicizer.displayName()).append(", ");
+				buffer.append("\t").append(canonicizer.displayName()).append(" ").append(canonicizer.getParameters()).append("\n");
 			}
-			buffer.delete(buffer.length()-2, buffer.length()-1);
 		}
-		buffer.append("\n");
 		buffer.append("EventDrivers: \n");
 		for(EventDriver eventDriver : eventSets.keySet()){
-			buffer.append(eventDriver.displayName()).append(" ").append(eventDriver.getParameters());
+			buffer.append("\t").append(eventDriver.displayName()).append(" ").append(eventDriver.getParameters());
 			for(EventCuller eventCuller : eventDriver.getEventCullers()){
-				buffer.append("\n\t").append(eventCuller.displayName()).append(" ").append(eventDriver.getParameters());
+				buffer.append("\n\t\t").append(eventCuller.displayName()).append(" ").append(eventDriver.getParameters());
 			}
 			buffer.append("\n");
 		}
-		buffer.append("Analysis: \n").append(analysisDriver.displayName()).append(" ").append(analysisDriver.getParameters());
+		buffer.append("Analysis: \n\t").append(analysisDriver.displayName()).append(" ").append(analysisDriver.getParameters());
 		buffer.append("\n");
 		int count = 0; // Keeps a relative count (adjusted for ties)
 		int fullCount = 0; // Keeps the absolute count (does not count ties)

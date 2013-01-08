@@ -19,6 +19,7 @@
  **/
 package com.jgaap.distances;
 
+import com.google.common.collect.Sets;
 import com.jgaap.generics.*;
 
 /**
@@ -27,13 +28,13 @@ import com.jgaap.generics.*;
  * @author Juola
  * @version 4.1
  */
-public class IntersectionDistance extends DistanceFunction{
+public class AltIntersectionDistance extends DistanceFunction{
 	public String displayName() {
-		return "Intersection Distance";
+		return "Alt Intersection Distance";
 	}
 
 	public String tooltipText() {
-		return "Event type set intersection divided by event type set union";
+		return "One over Event type set intersection plus one";
 	}
 
 	public boolean showInGUI() {
@@ -52,24 +53,7 @@ public class IntersectionDistance extends DistanceFunction{
 
 	@Override
 	public double distance(EventMap unknownEventMap, EventMap knownEventMap) {
-
-		double intersectioncount = 0;
-		double unioncount;
-
-		unioncount = unknownEventMap.uniqueEvents().size();
-		// unioncount now has the number of distinct types in h1
-
-		for (Event event : knownEventMap.uniqueEvents()) {
-			if (!unknownEventMap.contains(event)) {
-				// present in h2, not in h1, so add to union count
-				unioncount++;
-			} else {
-				// present in h2 and in h1
-				// already in union (from h1)
-				intersectioncount++; // add to intersection
-
-			}
-		}
-		return 1.0 - intersectioncount / unioncount;
+		double intersectioncount = Sets.intersection(unknownEventMap.uniqueEvents(), knownEventMap.uniqueEvents()).size();
+		return 1/(intersectioncount+1);
 	}
 }
