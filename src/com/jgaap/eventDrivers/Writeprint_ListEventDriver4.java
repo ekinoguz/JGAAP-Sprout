@@ -45,7 +45,7 @@ public class Writeprint_ListEventDriver4 extends EventDriver {
 
 	@Override
 	public String displayName() {
-		return "_WP_List-based event driver, Misspelled Words";
+		return "_WP_List-based event driver Misspelled Words";
 	}
 
 	@Override

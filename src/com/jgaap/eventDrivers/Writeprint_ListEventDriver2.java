@@ -45,7 +45,7 @@ public class Writeprint_ListEventDriver2 extends EventDriver {
 
 	@Override
 	public String displayName() {
-		return "_WP_List-based event driver, Function Words";
+		return "_WP_List-based event driver Function Words";
 	}
 
 	@Override

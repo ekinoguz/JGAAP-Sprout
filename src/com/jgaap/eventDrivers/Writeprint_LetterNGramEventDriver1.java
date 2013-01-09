@@ -7,7 +7,7 @@ public class Writeprint_LetterNGramEventDriver1 extends CharacterNGramEventDrive
 	
 	@Override
 	public String displayName() {
-		return "_WP_Letter N-Grams, N=1";
+		return "_WP_Letter N-Grams N=1";
 	}
 
 	@Override

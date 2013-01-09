@@ -2691,7 +2691,8 @@ public class JGAAP_UI_MainForm extends javax.swing.JFrame {
 			try {
 				//filepath = FileChoser.getSelectedFile().getCanonicalPath();
 				//filepath = "/Users/ekinoguz/Dropbox/UCI-Work/Mish-JGAAP/JGAAP-Test/10-authors-splitted.csv";
-				//filepath = "/Users/ekinoguz/Dropbox/UCI-Work/Mish-JGAAP/JGAAP-Test/10-authors-splitted.csv";
+				//filepath = "/Users/ekinoguz/Dropbox/UCI-Work/Mish-JGAAP/experiments/35-reviews-test-1-splitted.csv";
+				filepath = "/Users/ekinoguz/Dropbox/UCI-Work/Mish-JGAAP/experiments/35-reviews-test-1.csv";
 				List<List<String>> DocumentCSVs = CSVIO.readCSV(filepath);
 				for (int i = 0; i < DocumentCSVs.size(); i++) {
 					JGAAP_API.addDocument(DocumentCSVs.get(i).get(1),

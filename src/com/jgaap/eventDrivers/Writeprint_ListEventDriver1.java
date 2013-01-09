@@ -45,7 +45,7 @@ public class Writeprint_ListEventDriver1 extends EventDriver {
 
 	@Override
 	public String displayName() {
-		return "_WP_List-based event driver, Special Characters";
+		return "_WP_List-based event driver Special Characters";
 	}
 
 	@Override

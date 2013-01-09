@@ -19,7 +19,7 @@ public class Writeprint_RegexpCounterEventDriver2 extends NumericEventDriver {
 	 */
 	
 	public String displayName() {
-		return "_WP_Regular expr counter, [A-Za-z]";
+		return "_WP_Regular expr counter [A-Za-z]";
 	}
 
 	public String tooltipText() {
