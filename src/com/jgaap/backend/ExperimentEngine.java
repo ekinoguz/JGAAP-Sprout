@@ -99,7 +99,8 @@ public class ExperimentEngine {
 		}
 		//return (path + experimentName + number + dateFormat.format(date) + ".txt");
 		String apath = canonName + "_" + eventName + "_" + cullerName + "_" + analysis.trim();
-		return (path + experimentName + number + apath + ".txt");
+		return (path + experimentName + number + ".txt");
+		//return (path + experimentName + number + apath + ".txt"); //original filename
 	}
 	/* ekinoguz - end */
 
