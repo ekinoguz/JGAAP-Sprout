@@ -263,6 +263,7 @@ public class Document extends Parameterizable {
 	 * Take the list of canonicizers associated with this document and apply
 	 * them to the document one by one, in the same order they were added.
 	 */
+	static int documentNo = 0;
 	public void processCanonicizers() throws LanguageParsingException, CanonicizationException {
 		if (language.isParseable()){
 			text = language.parseLanguage(stringify());

@@ -130,7 +130,20 @@ public class ExperimentEngine {
 				continue;
 			} else if (experimentRow.size() >= 7) {
 				String number = experimentRow.get(0);
-				String[] canonicizers = experimentRow.get(1).trim().split("\\s*&\\s*");
+				
+				
+				/* ekinoguz */
+				//String[] canonicizers = experimentRow.get(1).trim().split("\\s*&\\s*");
+				
+				/* ekinoguz */
+				StringTokenizer st = new StringTokenizer(experimentRow.get(1).trim(), "()");
+				String[] canonicizers = new String[st.countTokens()];
+				int indexCanonicizer = 0;
+				while (st.hasMoreTokens()) {
+					//System.out.println(st.nextToken());
+					canonicizers[indexCanonicizer++] = st.nextToken();
+				}
+				/* ekinoguz */
 				String[] events = experimentRow.get(2).trim().split("\\s*&\\s*");
 				String[] eventCullers = experimentRow.get(3).trim().split("\\s*&\\s*");
 				String analysis = experimentRow.get(4).trim();
@@ -179,6 +192,7 @@ public class ExperimentEngine {
 		public Experiment(String[] canonicizers, String[] events,
 				String[] eventCullers, String analysis, String distance,
 				String documentsPath, String fileName) {
+			
 			this.canonicizers = canonicizers;
 			this.events = events;
 			this.eventCullers = eventCullers;
@@ -202,10 +216,25 @@ public class ExperimentEngine {
 				for (Document document : documents) {
 					experiment.addDocument(document);
 				}
-				for (String canonicizer : canonicizers) {
-					if(!canonicizer.isEmpty())
-						experiment.addCanonicizer(canonicizer);
+				
+				/* ekinoguz */
+				if (canonicizers.length == 1)
+				{
+					for (String canonicizer : canonicizers) {
+						if(!canonicizer.isEmpty())
+							experiment.addCanonicizer(canonicizer);
+					}
 				}
+				else
+				{
+					int documentNo = 0;
+					for (String canonicizer : canonicizers) {
+						if(!canonicizer.isEmpty())
+							experiment.addCanonicizer(canonicizer, documentNo++);
+					}
+				}
+				/* ekinoguz */
+				
 				for (String event : events) {
 					experiment.addEventDriver(event);
 				}

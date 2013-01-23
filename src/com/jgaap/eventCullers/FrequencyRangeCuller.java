@@ -82,6 +82,9 @@ public class FrequencyRangeCuller extends EventCuller {
             results.add(newSet);
         }
         
+        //System.out.println(results.size());
+        //for( EventSet e : results)
+        //	System.out.println(e.toString());
         return results;  //To change body of implemented methods use File | Settings | File Templates.
     }
 

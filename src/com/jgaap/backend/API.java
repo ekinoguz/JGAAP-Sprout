@@ -252,6 +252,26 @@ public class API {
 		}
 		return canonicizer;
 	}
+	
+	/**
+	 * 
+	 * @author ekinoguz
+	 * Adds the specified canonicizer array to document at position documentNo
+	 * 
+	 * @param action - the unique string name representing a canonicizer (displayName())
+	 * @return - list of added canonicizer
+	 * @throws Exception - if the canonicizer specified cannot be found or instanced
+	 */
+	public String addCanonicizer(String action, int documentNo) throws Exception {
+		String[] canonicizerList = action.trim().split("\\s*&\\s*");
+		for (String canonicizerString : canonicizerList)
+		{
+			Canonicizer canonicizer = CanonicizerFactory.getCanonicizer(canonicizerString);
+			addCanonicizer(canonicizer, documents.get(documentNo));
+		}
+		return action;
+	}
+	
 
 	/**
 	 * Adds the specified canonicizer to all Documents that have the DocType docType.
@@ -584,7 +604,12 @@ public class API {
 					try {
 						document.setLanguage(language);
 						document.load();
+						/* ekinoguz */
 						document.processCanonicizers();
+						logger.info("Document: "+document.getTitle()+ " canonicized with " + document.getCanonicizers());
+						//System.out.println("After canonicization with " + document.getCanonicizers() + "\n" + document.getFilePath() + "\n" + 
+							//				new String(document.getText()));
+						/* ekinoguz */
 						for (EventDriver eventDriver : eventDrivers) {
 							char[] text = document.getText();
 							for(Canonicizer canonicizer : eventDriver.getCanonicizers()){
