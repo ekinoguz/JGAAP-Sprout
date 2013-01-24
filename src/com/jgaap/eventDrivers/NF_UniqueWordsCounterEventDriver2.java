@@ -39,11 +39,11 @@ public class NF_UniqueWordsCounterEventDriver2 extends NumericEventDriver {
 	 */
 	
 	public String displayName() {
-		return "9F_Ratio of unique words to total number of words in the document.";
+		return "9F_Complexity";
 	}
 
 	public String tooltipText() {
-		return "The total number of unique words";
+		return "Ratio of unique words to total number of words in the document.";
 	}
 
 	public boolean showInGUI() {

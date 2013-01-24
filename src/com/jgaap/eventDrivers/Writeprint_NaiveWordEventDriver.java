@@ -30,12 +30,12 @@ public class Writeprint_NaiveWordEventDriver extends EventDriver {
 
 	@Override
 	public String displayName() {
-		return "_WP_NaiveWords";
+		return "_WP_Words";
 	}
 
 	@Override
 	public String tooltipText() {
-		return "Words (White Space as Separators)";
+		return "Frequencies of various words in the text, case insensitive and without punctuations.";
 	}
 
 	@Override

@@ -46,6 +46,7 @@ public class NF_FleschReadingEaseScoreEventDriver extends NumericEventDriver {
 	}
 
 	public String tooltipText() {
+		//return "The Flesch reading ease score: 206.835 - 1.015*(total words / total sentences) -84.6*(total syllables / total words)";
 		return "Flesch Reading Ease Score";
 	}
 

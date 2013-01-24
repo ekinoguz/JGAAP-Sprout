@@ -15,36 +15,31 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-/**
- **/
 package com.jgaap.canonicizers;
 
 import com.jgaap.generics.Canonicizer;
 
 /**
- * Strips all vowels from the document.
- * 
+ * Used to separate canonocizers for each eventDriver
+ *  
  * @author ekinoguz
+ * 
  */
-public class StripVowels extends Canonicizer {
-
-	//private String vowels = "aeiou"; // Characters which will be
-
-	// considered "punctuation"
+public class SeparatorCanonicizer extends Canonicizer {
 
 	@Override
 	public String displayName() {
-		return "Strip Vowels";
+		return "Separator";
 	}
 
 	@Override
 	public String tooltipText() {
-		return "Strip all vowels from the text.";
+		return "Used to separate canonocizers for each eventDriver";
 	}
 
 	@Override
 	public String longDescription() {
-		return "Strip all vowels from the text.";
+		return "Used to separate canonocizers for each eventDriver. Does nothing";
 	}
 
 	@Override
@@ -52,27 +47,10 @@ public class StripVowels extends Canonicizer {
 		return true;
 	}
 
-	/**
-	 * Strip vowels from input characters
-	 * 
-	 * @param procText
-	 *            Array of characters to be processed.
-	 * @return Array of processed characters.
-	 */
+
 	@Override
 	public char[] process(char[] procText) {
-    	String procString = new String(procText);
-    	String list = "aeiou";
-    	list = "[" + list + list.toUpperCase() + "]";
-    	procString = procString.replaceAll(list, "");
-    	return procString.toCharArray();
+		return procText;
 	}
-	
-	public static void main(String[] args) {
-		String s = " Hi there! how are you, man?. I haven't been , here before, have I? hi .again.";
-		String res = String.valueOf((new StripVowels()).process(s.toCharArray()));
-		System.out.println(s);
-		System.out.println(res);
-	}
-	
+
 }

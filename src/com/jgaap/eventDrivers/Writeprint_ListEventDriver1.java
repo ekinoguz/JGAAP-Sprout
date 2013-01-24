@@ -45,12 +45,12 @@ public class Writeprint_ListEventDriver1 extends EventDriver {
 
 	@Override
 	public String displayName() {
-		return "_WP_List-based event driver Special Characters";
+		return "_WP_Special Characters";
 	}
 
 	@Override
 	public String tooltipText() {
-		return "Filtered Event Set with Named Events Kept";
+		return "Frequencies of special characters, e.g. ~, @ etc.";
 	}
 	
 	@Override

@@ -38,11 +38,11 @@ public class NF_SyllableCounterEventDriver extends NumericEventDriver {
 	 */
 	
 	public String displayName() {
-		return "9F_Syllables count";
+		return "9F_Average Syllables in Word";
 	}
 
 	public String tooltipText() {
-		return "The total number of syllables";
+		return "Average syllables in word";
 	}
 
 	public boolean showInGUI() {

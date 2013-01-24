@@ -37,11 +37,11 @@ public class NF_SentenceCounterEventDriver extends NumericEventDriver {
 	 */
 	
 	public String displayName() {
-		return "9F_Sentence count";
+		return "9F_Sentence Count";
 	}
 
 	public String tooltipText() {
-		return "The total number of sentences";
+		return "Number of sentences in the document.";
 	}
 
 	public boolean showInGUI() {

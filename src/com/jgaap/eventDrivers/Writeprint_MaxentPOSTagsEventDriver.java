@@ -26,7 +26,7 @@ public class Writeprint_MaxentPOSTagsEventDriver extends EventDriver {
 
 	@Override
 	public String displayName() {
-		return "_WP_Maxent POS tags";
+		return "_WP_POS Tags";
 	}
 
 	@Override

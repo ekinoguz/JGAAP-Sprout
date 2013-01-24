@@ -43,7 +43,7 @@ public class NullCanonicizer extends Canonicizer {
     
 
     public boolean showInGUI(){
-    	return true;
+    	return false;
     }
     
 

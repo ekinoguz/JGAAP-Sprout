@@ -37,7 +37,7 @@ public class NF_WordCounterEventDriver extends NumericEventDriver {
 	 */
 	
 	public String displayName() {
-		return "9F_Word count";
+		return "9F_Average Sentence Length";
 	}
 
 	public String tooltipText() {

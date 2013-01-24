@@ -39,7 +39,7 @@ public class Writeprint_WordNGramEventDriver2 extends NGramEventDriver {
 
 	@Override
 	public String displayName() {
-		return "_WP_Word NGrams N=3";
+		return "_WP_Word Trigrams";
 	}
 
 	@Override

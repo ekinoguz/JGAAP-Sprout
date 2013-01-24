@@ -45,12 +45,12 @@ public class Writeprint_ListEventDriver2 extends EventDriver {
 
 	@Override
 	public String displayName() {
-		return "_WP_List-based event driver Function Words";
+		return "_WP_Function Words";
 	}
 
 	@Override
 	public String tooltipText() {
-		return "Filtered Event Set with Named Events Kept";
+		return "512 common function words, used by Koppel et al. in Koppel, 2005.";
 	}
 	
 	@Override

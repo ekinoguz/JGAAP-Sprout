@@ -19,7 +19,7 @@ public class Writeprint_RegexpCounterEventDriver1 extends NumericEventDriver {
 	 */
 	
 	public String displayName() {
-		return "_WP_Regular expr counter \\d";
+		return "_WP_Digits Percentage";
 	}
 
 	public String tooltipText() {

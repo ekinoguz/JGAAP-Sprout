@@ -38,11 +38,11 @@ public class NF_LetterCounterEventDriver extends NumericEventDriver {
 	 */
 	
 	public String displayName() {
-		return "9F_Letter count";
+		return "9F_Letter Space";
 	}
 
 	public String tooltipText() {
-		return "The total number of letters.";
+		return "The total number of letters (excluding spaces and punctuation).";
 	}
 
 	public boolean showInGUI() {

@@ -36,11 +36,11 @@ public class NF_CharCounterEventDriver extends NumericEventDriver {
 	 */
 	
 	public String displayName() {
-		return "9F_Character count";
+		return "9F_Character Space";
 	}
 
 	public String tooltipText() {
-		return "The total number of characters.";
+		return "The total number of characters in the document, spaces included.";
 	}
 
 	public boolean showInGUI() {

@@ -7,7 +7,7 @@ public class Writeprint_LetterNGramEventDriver3 extends CharacterNGramEventDrive
 	
 	@Override
 	public String displayName() {
-		return "_WP_Letter N-Grams N=3";
+		return "_WP_Top Letter trigrams";
 	}
 
 	@Override

@@ -50,7 +50,14 @@ public class NF_GunningFogIndexEventDriver extends NumericEventDriver {
 	public String tooltipText() {
 		return "Gunning-Fog Readability Index";
 	}
-
+	
+	
+	@Override
+	public String longDescription() {
+		return 	"The Gunning-Fog readability index: 0.4*((total words / total sentences) + " +
+				"100*(total complex words / total words)) [where complex words are words with 3 or more syllables].";
+	}
+	
 	public boolean showInGUI() {
 		return true;
 	}

@@ -230,14 +230,27 @@ public class ExperimentEngine {
 					int documentNo = 0;
 					for (String canonicizer : canonicizers) {
 						if(!canonicizer.isEmpty())
-							experiment.addCanonicizer(canonicizer, documentNo++);
+							experiment.addCanonicizer(canonicizer, 1, documentNo++);
 					}
 				}
 				/* ekinoguz */
 				
+				int originalListIndex = 0;
+				List<Canonicizer> originalList = documents.get(0).getCanonicizers();
+				
 				for (String event : events) {
 					experiment.addEventDriver(event);
+					
+					if (originalList.size() > 0) {
+						String ss = "";
+						ss = "Canonicizers for " + event + ":\t";
+						while (!originalList.get(originalListIndex++).equals(CanonicizerFactory.getCanonicizer("Null Canonicizer")))
+							ss += originalList.get(originalListIndex-1) + ", ";
+						ss += "\n";
+						logger.info(ss);
+					}
 				}
+				
 				for (String eventCuller : eventCullers) {
 					if (eventCuller != null && !"".equalsIgnoreCase(eventCuller))
 						experiment.addEventCuller(eventCuller.trim());

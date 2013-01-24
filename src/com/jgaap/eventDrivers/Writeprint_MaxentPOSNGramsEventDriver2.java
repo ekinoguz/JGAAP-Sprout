@@ -23,7 +23,7 @@ public class Writeprint_MaxentPOSNGramsEventDriver2 extends EventDriver {
 
 	@Override
 	public String displayName() {
-		return "_WP_Maxent POS N-Grams n=3";
+		return "_WP_POS Trigrams";
 	}
 
 	@Override

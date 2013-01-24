@@ -19,7 +19,7 @@ public class Writeprint_RegexpEventDriver3 extends EventDriver {
 	 */
 	
 	public String displayName() {
-		return "_WP_Regular expression matches \\d\\d\\d";
+		return "_WP_Three Digit Numbers";
 	}
 
 	public String tooltipText() {

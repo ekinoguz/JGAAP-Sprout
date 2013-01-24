@@ -45,12 +45,12 @@ public class Writeprint_ListEventDriver4 extends EventDriver {
 
 	@Override
 	public String displayName() {
-		return "_WP_List-based event driver Misspelled Words";
+		return "_WP_Misspelled Words";
 	}
 
 	@Override
 	public String tooltipText() {
-		return "Filtered Event Set with Named Events Kept";
+		return "Frequencies of misspelled words out of a list of 5,513 common misspellings.";
 	}
 	
 	@Override

@@ -54,12 +54,12 @@ public class Writeprint_ListEventDriver3 extends EventDriver {
 
 	@Override
 	public String displayName() {
-		return "_WP_List-based event driver Punctuation";
+		return "_WP_Punctuation";
 	}
 
 	@Override
 	public String tooltipText() {
-		return "Filtered Event Set with Named Events Kept";
+		return "Punctuation symbols like . , ! etc.";
 	}
 	
 	@Override

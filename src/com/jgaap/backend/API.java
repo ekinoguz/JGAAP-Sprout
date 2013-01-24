@@ -22,6 +22,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
@@ -256,18 +257,40 @@ public class API {
 	/**
 	 * 
 	 * @author ekinoguz
-	 * Adds the specified canonicizer array to document at position documentNo
+	 * Adds the specified canonicizer array to either eventDriver or to 
+	 * document at position documentNo
 	 * 
+	 * @param option - 1 for each eventDriver, 2 for each document
 	 * @param action - the unique string name representing a canonicizer (displayName())
 	 * @return - list of added canonicizer
 	 * @throws Exception - if the canonicizer specified cannot be found or instanced
 	 */
-	public String addCanonicizer(String action, int documentNo) throws Exception {
+	public String addCanonicizer(String action, int option, int documentNo) throws Exception {
 		String[] canonicizerList = action.trim().split("\\s*&\\s*");
-		for (String canonicizerString : canonicizerList)
+		
+		if (option == 1)
 		{
-			Canonicizer canonicizer = CanonicizerFactory.getCanonicizer(canonicizerString);
-			addCanonicizer(canonicizer, documents.get(documentNo));
+			for (String canonicizerString : canonicizerList)
+			{
+				for (Document document : documents)
+				{
+					Canonicizer canonicizer = CanonicizerFactory.getCanonicizer(canonicizerString);
+					addCanonicizer(canonicizer, document);
+				}
+			}
+			for (Document document : documents)
+			{
+				Canonicizer canonicizer = CanonicizerFactory.getCanonicizer("Null Canonicizer");
+				addCanonicizer(canonicizer, document);
+			}
+		}
+		else
+		{
+			for (String canonicizerString : canonicizerList)
+			{
+				Canonicizer canonicizer = CanonicizerFactory.getCanonicizer(canonicizerString);
+				addCanonicizer(canonicizer, documents.get(documentNo));
+			}
 		}
 		return action;
 	}
@@ -597,6 +620,10 @@ public class API {
 	private void loadCanonicizeEventify() throws Exception{
 		ExecutorService loadCanonicizeEventifyExecutor = Executors.newFixedThreadPool(workers);
 		List<Future<Document>> documentsProcessing = new ArrayList<Future<Document>>(documents.size());
+		
+		/* ekinoguz */
+		/* ekinoguz */
+		
 		for(final Document document : documents){
 			Callable<Document> work = new Callable<Document>() {
 				@Override
@@ -605,13 +632,33 @@ public class API {
 						document.setLanguage(language);
 						document.load();
 						/* ekinoguz */
-						document.processCanonicizers();
-						logger.info("Document: "+document.getTitle()+ " canonicized with " + document.getCanonicizers());
-						//System.out.println("After canonicization with " + document.getCanonicizers() + "\n" + document.getFilePath() + "\n" + 
-							//				new String(document.getText()));
+						List<Canonicizer> canonicizerList = new ArrayList<Canonicizer>();
+						List<Canonicizer> originalList = document.getCanonicizers();
+						int originalListIndex = 0;
+						//document.processCanonicizers();
+						//logger.info("Document: "+document.getTitle()+ " canonicized with " + document.getCanonicizers());
+						//System.out.println("After canonicization with " + document.getCanonicizers() + "\n" + document.getFilePath() + "\n" + new String(document.getText())); 
+				
 						/* ekinoguz */
 						for (EventDriver eventDriver : eventDrivers) {
+							
+							char[] originalText = document.getText();
+							/* ekinoguz */
+							if (originalList.size() > 0) {
+								while (!originalList.get(originalListIndex++).equals(CanonicizerFactory.getCanonicizer("Null Canonicizer")))
+									canonicizerList.add(originalList.get(originalListIndex-1));
+								
+								document.processCanonicizers(canonicizerList);
+								/*System.out.println("****************************");
+								System.out.println(eventDriver.displayName());
+								System.out.println(canonicizerList.toString());
+								System.out.println(document.getText());
+								System.out.println("****************************");
+								*/
+								//System.out.println(text);
+							}
 							char[] text = document.getText();
+							/* ekinoguz */
 							for(Canonicizer canonicizer : eventDriver.getCanonicizers()){
 								text = canonicizer.process(text);
 							}
@@ -621,6 +668,8 @@ public class API {
 								logger.error("Could not Eventify with "+eventDriver.displayName()+" on File:"+document.getFilePath()+" Title:"+document.getTitle(),e);
 								throw new Exception("Could not Eventify with "+eventDriver.displayName()+" on File:"+document.getFilePath()+" Title:"+document.getTitle(),e);
 							}
+							canonicizerList.clear();
+							document.setText(originalText);
 						}
 						document.readStringText("");
 					} catch (LanguageParsingException e) {
@@ -727,6 +776,15 @@ public class API {
 		loadCanonicizeEventify();
 		cull();
 		analyze();
+		
+		/* ekinoguz */
+//		for (Document d : documents)
+//		{	
+//			Map<EventDriver, EventSet> es = d.getEventSets();
+//			for (EventDriver ed : es.keySet())
+//				System.out.println("Document: " + d.getTitle() + "\tEventDriver: " + ed + "\n" + es.get(ed));
+//		}
+		/* ekinoguz */
 	}
 	
 	/**
