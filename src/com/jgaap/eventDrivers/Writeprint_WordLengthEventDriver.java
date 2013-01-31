@@ -67,18 +67,13 @@ public class Writeprint_WordLengthEventDriver extends NumericEventDriver {
 		newEs.setAuthor(es.getAuthor());
 		newEs.setNewEventSetID(es.getAuthor());
 
-		System.out.println(text);
 		for (int i = 0; i < es.size(); i++) {
 			String s = (es.eventAt(i)).toString();
 			if (s.equals("JGAAP:DOCUMENTBOUNDARY") == false) {
 				int l = s.length();
-				System.out.print(l + ", \t");
 				newEs.addEvent(new Event(String.valueOf(l), this));
 			}
 		}
-
-		System.out.println();
-		System.out.println();
 		return newEs;
 	}
 

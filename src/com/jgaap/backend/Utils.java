@@ -48,7 +48,9 @@ public class Utils {
 		BufferedWriter writer;
 		try {
 			writer = new BufferedWriter(new FileWriter(filePath, append));
+			writer.flush();
 			writer.write(data);
+			writer.flush();
 			writer.close();
 		} catch (IOException e) {
 			e.printStackTrace();

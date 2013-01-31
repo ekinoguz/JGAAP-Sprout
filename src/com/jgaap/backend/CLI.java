@@ -93,7 +93,12 @@ public class CLI {
 						.hasArg()
 						.withDescription("Batch processing, pass in a csv file of experiments")
 						.withLongOpt("experimentengine").create("ee");
-
+	static Option crossMatching = OptionBuilder
+						.withArgName("file")
+						.hasArg()
+						.withDescription("Batch processing, pass in a csv file of experiments. Outputs two files with feature values for identified/anonymous records")
+						.withLongOpt("crossmatching").create("cm");
+	
 	static {
 		options.addOption(help);
 		options.addOption(version);
@@ -106,6 +111,7 @@ public class CLI {
 		options.addOption(load);
 		options.addOption(save);
 		options.addOption(experimentEngine);
+		options.addOption(crossMatching);
 	}
 
 	/**
@@ -158,6 +164,11 @@ public class CLI {
 		} else if (cmd.hasOption("ee")) {
 			String eeFile = cmd.getOptionValue("ee");
 			ExperimentEngine.runExperiment(eeFile);
+			System.exit(0);
+		} else if (cmd.hasOption("cm")) {
+			String eeFile = cmd.getOptionValue("cm");
+			ExperimentEngine.runExperiment(eeFile);
+			new CompareMatching(); /* ekinoguz */
 			System.exit(0);
 		} else {
 			JGAAP.commandline = true;

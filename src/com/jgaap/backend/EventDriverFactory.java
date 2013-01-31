@@ -58,4 +58,13 @@ public class EventDriverFactory {
 		}
 		return eventDriver;
 	}
+	
+	public static String getEventDriverDisplayName(String target) {
+		for (String s:eventDrivers.keySet())
+		{
+			if ((eventDrivers.get(s).toString()).contains(target))
+				return s;
+		}
+		return "error-in-eventdriverfactor";
+	}
 }

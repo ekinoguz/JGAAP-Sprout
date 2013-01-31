@@ -99,6 +99,10 @@ public class EventSet implements Iterable<Event> {
     public void addEvents(EventSet eventSet) {
     	this.events.addAll(eventSet.events);
     }
+    
+    public List<Event> getEvents() {
+    	return events;
+    }
 
     /* ekinoguz - begin */
     public boolean removeEvent(Event event){

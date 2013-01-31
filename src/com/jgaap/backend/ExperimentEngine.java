@@ -38,7 +38,10 @@ public class ExperimentEngine {
 	static Logger logger = Logger.getLogger(ExperimentEngine.class);
 
 	private static final int workers = 2;
-
+	
+	/* ekinoguz */
+	public static ArrayList<String> outputFileName = new ArrayList<String>();
+	
 	/**
 	 * This method generates unique file names and a directory structure to save
 	 * the results of an experiment run
@@ -98,7 +101,8 @@ public class ExperimentEngine {
 				// aware of this)
 		}
 		//return (path + experimentName + number + dateFormat.format(date) + ".txt");
-		String apath = canonName + "_" + eventName + "_" + cullerName + "_" + analysis.trim();
+		//String apath = canonName + "_" + eventName + "_" + cullerName + "_" + analysis.trim();
+		outputFileName.add((path + experimentName + number + ".txt"));
 		return (path + experimentName + number + ".txt");
 		//return (path + experimentName + number + apath + ".txt"); //original filename
 	}
@@ -130,7 +134,6 @@ public class ExperimentEngine {
 				continue;
 			} else if (experimentRow.size() >= 7) {
 				String number = experimentRow.get(0);
-				
 				
 				/* ekinoguz */
 				//String[] canonicizers = experimentRow.get(1).trim().split("\\s*&\\s*");
@@ -218,20 +221,10 @@ public class ExperimentEngine {
 				}
 				
 				/* ekinoguz */
-				if (canonicizers.length == 1)
-				{
-					for (String canonicizer : canonicizers) {
-						if(!canonicizer.isEmpty())
-							experiment.addCanonicizer(canonicizer);
-					}
-				}
-				else
-				{
-					int documentNo = 0;
-					for (String canonicizer : canonicizers) {
-						if(!canonicizer.isEmpty())
-							experiment.addCanonicizer(canonicizer, 1, documentNo++);
-					}
+				int documentNo = 0;
+				for (String canonicizer : canonicizers) {
+					if(!canonicizer.isEmpty())
+						experiment.addCanonicizer(canonicizer, 1, documentNo++);
 				}
 				/* ekinoguz */
 				
@@ -244,12 +237,13 @@ public class ExperimentEngine {
 					if (originalList.size() > 0) {
 						String ss = "";
 						ss = "Canonicizers for " + event + ":\t";
-						while (!originalList.get(originalListIndex++).equals(CanonicizerFactory.getCanonicizer("Null Canonicizer")))
+						while (originalListIndex < originalList.size() && !originalList.get(originalListIndex++).equals(CanonicizerFactory.getCanonicizer("Null Canonicizer")))
 							ss += originalList.get(originalListIndex-1) + ", ";
 						ss += "\n";
 						logger.info(ss);
 					}
 				}
+				/* ekinoguz */
 				
 				for (String eventCuller : eventCullers) {
 					if (eventCuller != null && !"".equalsIgnoreCase(eventCuller))

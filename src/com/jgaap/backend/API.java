@@ -620,10 +620,6 @@ public class API {
 	private void loadCanonicizeEventify() throws Exception{
 		ExecutorService loadCanonicizeEventifyExecutor = Executors.newFixedThreadPool(workers);
 		List<Future<Document>> documentsProcessing = new ArrayList<Future<Document>>(documents.size());
-		
-		/* ekinoguz */
-		/* ekinoguz */
-		
 		for(final Document document : documents){
 			Callable<Document> work = new Callable<Document>() {
 				@Override
@@ -645,7 +641,7 @@ public class API {
 							char[] originalText = document.getText();
 							/* ekinoguz */
 							if (originalList.size() > 0) {
-								while (!originalList.get(originalListIndex++).equals(CanonicizerFactory.getCanonicizer("Null Canonicizer")))
+								while (originalListIndex < originalList.size() && !originalList.get(originalListIndex++).equals(CanonicizerFactory.getCanonicizer("Null Canonicizer")))
 									canonicizerList.add(originalList.get(originalListIndex-1));
 								
 								document.processCanonicizers(canonicizerList);
@@ -655,6 +651,7 @@ public class API {
 								System.out.println(document.getText());
 								System.out.println("****************************");
 								*/
+								//System.out.println(document.getText());
 								//System.out.println(text);
 							}
 							char[] text = document.getText();
@@ -776,15 +773,6 @@ public class API {
 		loadCanonicizeEventify();
 		cull();
 		analyze();
-		
-		/* ekinoguz */
-//		for (Document d : documents)
-//		{	
-//			Map<EventDriver, EventSet> es = d.getEventSets();
-//			for (EventDriver ed : es.keySet())
-//				System.out.println("Document: " + d.getTitle() + "\tEventDriver: " + ed + "\n" + es.get(ed));
-//		}
-		/* ekinoguz */
 	}
 	
 	/**
