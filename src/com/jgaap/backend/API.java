@@ -631,34 +631,26 @@ public class API {
 						List<Canonicizer> canonicizerList = new ArrayList<Canonicizer>();
 						List<Canonicizer> originalList = document.getCanonicizers();
 						int originalListIndex = 0;
-						//document.processCanonicizers();
 						//logger.info("Document: "+document.getTitle()+ " canonicized with " + document.getCanonicizers());
 						//System.out.println("After canonicization with " + document.getCanonicizers() + "\n" + document.getFilePath() + "\n" + new String(document.getText())); 
 				
 						/* ekinoguz */
 						for (EventDriver eventDriver : eventDrivers) {
-							
-							char[] originalText = document.getText();
-							/* ekinoguz */
+							char[] originalText = document.getText().clone();
 							if (originalList.size() > 0) {
 								while (originalListIndex < originalList.size() && !originalList.get(originalListIndex++).equals(CanonicizerFactory.getCanonicizer("Null Canonicizer")))
 									canonicizerList.add(originalList.get(originalListIndex-1));
-								
 								document.processCanonicizers(canonicizerList);
-								/*System.out.println("****************************");
-								System.out.println(eventDriver.displayName());
-								System.out.println(canonicizerList.toString());
-								System.out.println(document.getText());
-								System.out.println("****************************");
-								*/
-								//System.out.println(document.getText());
-								//System.out.println(text);
+//								System.out.println("****************************");
+//								System.out.println(eventDriver.displayName());
+//								System.out.println(canonicizerList.toString());
+//								System.out.println(document.getText());
+//								System.out.println("****************************");
 							}
 							char[] text = document.getText();
-							/* ekinoguz */
-							for(Canonicizer canonicizer : eventDriver.getCanonicizers()){
-								text = canonicizer.process(text);
-							}
+//							for(Canonicizer canonicizer : eventDriver.getCanonicizers()){
+//								text = canonicizer.process(text);
+//							}
 							try{
 								document.addEventSet(eventDriver,eventDriver.createEventSet(text));
 							} catch (EventGenerationException e) {

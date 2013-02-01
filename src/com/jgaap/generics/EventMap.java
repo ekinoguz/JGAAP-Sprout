@@ -25,35 +25,43 @@ public class EventMap {
 	private final ImmutableMap<Event, Double> histogram;
 	/* ekinoguz */
 	private static HashMap<String, ImmutableMap<Event, Double>> valueHistograms = new HashMap<String, ImmutableMap<Event,Double>>();
-	private static HashMap<String, Integer> values = new HashMap<String, Integer>();
 	/* ekinoguz */
 	
 	public EventMap(Document document) {
-		this(document.getEventSets().values(), document.getEventSets().keySet().toString(), document.getFilePath());
+		this(document.getEventSets().values());
+		updateValueHistograms(document.getEventSets(), document.getFilePath());
 	}
 	
-	public EventMap(Iterable<EventSet> eventSets, String eventDriverName, String documentPath) {
-		String filePath = getEventDriverName(documentPath, eventDriverName);
-		ImmutableMap<Event, Double> valueHistogram;
+	public EventMap(Iterable<EventSet> eventSets) {
 		Builder<Event, Double> histogramBuilder = ImmutableMap.builder();
-		Builder<Event, Double> valueHistogramBuilder = ImmutableMap.builder();
 		for(EventSet eventSet : eventSets){
 			double numEvents = eventSet.size();
 			Multiset<Event> multiset = ImmutableMultiset.copyOf(eventSet); 
 			for (Entry<Event> eventEntry : multiset.entrySet()) {
 				histogramBuilder.put(eventEntry.getElement(), eventEntry.getCount()/numEvents);
-				valueHistogramBuilder.put(eventEntry.getElement(), (double) eventEntry.getCount());
 			}
 		}
 		histogram = histogramBuilder.build();
-		valueHistogram = valueHistogramBuilder.build();
-		valueHistograms.put(filePath, valueHistogram);
-		//System.out.println(valueHistogram);
-			
+	}
+	
+	public void updateValueHistograms(Map<EventDriver, EventSet> documentMap, String documentPath) {
+		for (EventDriver ed : documentMap.keySet())
+		{
+			String filePath = getEventDriverName(documentPath, ed.displayName());
+			//System.out.println(filePath);
+			ImmutableMap<Event, Double> valueHistogram;
+			Builder<Event, Double> valueHistogramBuilder = ImmutableMap.builder();
+			Multiset<Event> multiset = ImmutableMultiset.copyOf(documentMap.get(ed)); 
+			for (Entry<Event> eventEntry : multiset.entrySet()) {
+				valueHistogramBuilder.put(eventEntry.getElement(), (double) eventEntry.getCount());
+			}
+			valueHistogram = valueHistogramBuilder.build();
+			valueHistograms.put(filePath, valueHistogram);
+		}
 	}
 	
 	public EventMap(EventSet eventSet) {
-		this(Collections.singleton(eventSet), null, null);
+		this(Collections.singleton(eventSet));
 	}
 	
 	/* ekinoguz */
@@ -63,12 +71,11 @@ public class EventMap {
 	public static HashMap<String, ImmutableMap<Event, Double>> getValueHistogram() {
 		return valueHistograms;
 	}
-	public String getEventDriverName(String documentPath, String filePath)
+	public String getEventDriverName(String documentPath, String eventDriverName)
 	{
-		int dotIndex = filePath.lastIndexOf('.');
-		return documentPath + "|" + filePath.substring(dotIndex+1, filePath.length()-10);
+		return documentPath + "|" + eventDriverName;
 	}
-	
+	/* ekinoguz */
 	
 	public EventMap(Map<Event, Double> histogram){
 		this.histogram = ImmutableMap.copyOf(histogram);

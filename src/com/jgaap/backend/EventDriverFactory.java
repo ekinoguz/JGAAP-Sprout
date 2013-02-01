@@ -34,6 +34,29 @@ import com.jgaap.generics.EventDriver;
 public class EventDriverFactory {
 
 	private static final Map<String, EventDriver> eventDrivers = loadEventDrivers();
+	private static final Map<String, Integer> numerics = loadNumerics(); 
+	
+	private static Map<String, Integer> loadNumerics() {
+		// Load the event drivers dynamically
+		Map<String, Integer> eventDrivers = new HashMap<String, Integer>();
+		eventDrivers.put(("9F_Average Sentence Length").toLowerCase(), 1);
+		eventDrivers.put(("9F_Average Syllables in Word").toLowerCase(), 1);
+		eventDrivers.put(("9F_Character Space").toLowerCase(), 1);
+		eventDrivers.put(("9F_Complexity").toLowerCase(), 1);
+		eventDrivers.put(("9F_Flesch Reading Ease Score").toLowerCase(), 1);
+		eventDrivers.put(("9F_Gunning-Fog Readability Index").toLowerCase(), 1);
+		eventDrivers.put(("9F_Letter Space").toLowerCase(), 1);
+		eventDrivers.put(("9F_Sentence Count").toLowerCase(), 1);
+		eventDrivers.put(("9F_Unique Words Count").toLowerCase(), 1);
+		
+		// Write prints
+		eventDrivers.put(("_WP_Average characters per word").toLowerCase(), 1);
+		eventDrivers.put(("_WP_Character Count").toLowerCase(), 1);
+		eventDrivers.put(("_WP_Uppercase Letters Percentage").toLowerCase(), 1);
+		eventDrivers.put(("_WP_Letters Percentage").toLowerCase(), 1);
+		
+		return eventDrivers;
+	}
 	
 	private static Map<String, EventDriver> loadEventDrivers() {
 		// Load the event drivers dynamically
@@ -66,5 +89,14 @@ public class EventDriverFactory {
 				return s;
 		}
 		return "error-in-eventdriverfactor";
+	}
+	
+	public static boolean isNumeric(String s)
+	{
+		s = s.toLowerCase();
+		if (numerics.containsKey(s))
+			return true;
+		else
+			return false;
 	}
 }
