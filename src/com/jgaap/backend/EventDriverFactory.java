@@ -54,6 +54,7 @@ public class EventDriverFactory {
 		eventDrivers.put(("_WP_Character Count").toLowerCase(), 1);
 		eventDrivers.put(("_WP_Uppercase Letters Percentage").toLowerCase(), 1);
 		eventDrivers.put(("_WP_Letters Percentage").toLowerCase(), 1);
+		eventDrivers.put(("_WP_Digits Percentage").toLowerCase(), 1);
 		
 		return eventDrivers;
 	}

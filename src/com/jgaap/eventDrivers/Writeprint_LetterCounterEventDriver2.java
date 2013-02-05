@@ -63,7 +63,7 @@ public class Writeprint_LetterCounterEventDriver2 extends NumericEventDriver {
 			if (!e.toString().matches("[A-Za-z]"))
 				chars.removeEvent(e);
 		}
-		return Math.round(chars.size()/total);
+		return chars.size()/total;
 	}
 	
 	@Override

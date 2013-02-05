@@ -43,7 +43,7 @@ public class Writeprint_RegexpCounterEventDriver3 extends NumericEventDriver {
 		int count = 0;
 		while (m.find())
 			count++;
-		return Math.round(1000 * count/total);
+		return count/total;
 	}
 	
 	@Override

@@ -61,7 +61,7 @@ public class NF_SyllableCounterEventDriver extends NumericEventDriver {
 		int i,sum = 0;
 		for (i=0; i<syllables.size(); i++)
 			sum += Integer.parseInt(syllables.eventAt(i).toString());
-		return Math.round(sum/total); 
+		return sum/total; 
 	}
 	
 	public NumericEventSet createEventSet(char[] text) throws EventGenerationException {

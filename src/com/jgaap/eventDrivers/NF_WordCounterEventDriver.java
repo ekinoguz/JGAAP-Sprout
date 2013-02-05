@@ -56,7 +56,7 @@ public class NF_WordCounterEventDriver extends NumericEventDriver {
 		} catch (Exception e) {
 			System.out.println("NF_WordCounterEventDriver in getValue exception: " + e);
 		}
-		return Math.round((wordsDriver.createEventSet(text).size())/total);
+		return wordsDriver.createEventSet(text).size()/total;
 	}
 
 	@Override

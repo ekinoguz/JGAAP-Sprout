@@ -53,7 +53,7 @@ public class NF_UniqueWordsCounterEventDriver2 extends NumericEventDriver {
 	public double getValue(char[] text) throws EventGenerationException {
 		EventSet words = wordCounter.createEventSet(text);
 		double total = words.size();
-		return Math.round(((new EventHistogram(words)).getNTypes())/total);
+		return (new EventHistogram(words)).getNTypes()/total;
 	}
 	
 	@Override
