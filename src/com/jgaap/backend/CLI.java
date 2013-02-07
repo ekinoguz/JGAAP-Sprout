@@ -96,8 +96,13 @@ public class CLI {
 	static Option crossMatching = OptionBuilder
 						.withArgName("file")
 						.hasArg()
-						.withDescription("Batch processing, pass in a csv file of experiments. Outputs two files with feature values for identified/anonymous records")
+						.withDescription("Batch processing, pass in a csv file of experiments. Outputs two files with feature names/feature values for identified/anonymous records")
 						.withLongOpt("crossmatching").create("cm");
+	static Option crossMatchingJustValues = OptionBuilder
+			.withArgName("file")
+			.hasArg()
+			.withDescription("Batch processing, pass in a csv file of experiments. Outputs two files with feature values for identified/anonymous records")
+			.withLongOpt("crossmatching").create("cmjv");
 	
 	static {
 		options.addOption(help);
@@ -112,6 +117,7 @@ public class CLI {
 		options.addOption(save);
 		options.addOption(experimentEngine);
 		options.addOption(crossMatching);
+		options.addOption(crossMatchingJustValues);
 	}
 
 	/**
@@ -168,7 +174,12 @@ public class CLI {
 		} else if (cmd.hasOption("cm")) {
 			String eeFile = cmd.getOptionValue("cm");
 			ExperimentEngine.runExperiment(eeFile);
-			new CompareMatching(); /* ekinoguz */
+			new CompareMatching(0); /* ekinoguz */
+			System.exit(0);
+		} else if (cmd.hasOption("cmjv")) {
+			String eeFile = cmd.getOptionValue("cmjv");
+			ExperimentEngine.runExperiment(eeFile);
+			new CompareMatching(1); /* ekinoguz */
 			System.exit(0);
 		} else {
 			JGAAP.commandline = true;

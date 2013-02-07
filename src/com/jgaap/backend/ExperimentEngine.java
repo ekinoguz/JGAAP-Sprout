@@ -41,6 +41,7 @@ public class ExperimentEngine {
 	
 	/* ekinoguz */
 	public static ArrayList<String> outputFileName = new ArrayList<String>();
+	public static String outputNumber = "";
 	
 	/**
 	 * This method generates unique file names and a directory structure to save
@@ -103,6 +104,7 @@ public class ExperimentEngine {
 		//return (path + experimentName + number + dateFormat.format(date) + ".txt");
 		//String apath = canonName + "_" + eventName + "_" + cullerName + "_" + analysis.trim();
 		outputFileName.add((path + experimentName + number + ".txt"));
+		outputNumber= number;
 		return (path + experimentName + number + ".txt");
 		//return (path + experimentName + number + apath + ".txt"); //original filename
 	}

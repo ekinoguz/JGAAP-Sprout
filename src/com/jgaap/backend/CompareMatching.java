@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map.Entry;
+import java.util.StringTokenizer;
 
 import com.google.common.collect.ImmutableMap;
 import com.jgaap.generics.Event;
@@ -16,12 +17,64 @@ public class CompareMatching {
 
 	HashMap<String, LinkedHashMap<Event, Double>> histogram;
 	
-	public CompareMatching()
+	/**
+	 * 
+	 * @param option
+	 * 		0: cross matching: cm
+	 * 		1: cross matching just values: cmjv
+	 */
+	public CompareMatching(int option)
 	{
-		saveSortedFiles();
+		if (option == 0)
+			saveSortedFilesAccordingToEventDriver();
+		else if (option == 1)
+			saveSortedValuesUsingFilename();
 	}
 
-	private void saveSortedFiles() 
+	public void saveSortedValuesUsingFilename() 
+	{
+		histogram = unionAll();
+		HashMap<String, String> outputs = new HashMap<String, String>();
+		String path;
+		int lastIndex = ExperimentEngine.outputFileName.get(0).lastIndexOf('/');
+		String pathBeginning = ExperimentEngine.outputFileName.get(0).substring(0, lastIndex+1);
+		
+		ArrayList<String> eventDrivers = new ArrayList<String>();
+		for (String str : histogram.keySet())
+		{
+			String tmp = getEventDriverName(str);
+			if (!eventDrivers.contains(tmp))
+				eventDrivers.add(tmp);
+		}
+		
+		for (String str : histogram.keySet())
+		{
+			StringBuilder sb = new StringBuilder();
+			
+			for (String ed : eventDrivers)
+			{
+				path = getFilePath(str) + '|' + ed;
+				// if numeric event, then just print the keySet which is a value
+				if (EventDriverFactory.isNumeric(getEventDriverName(ed)))
+					sb.append(histogram.get(path).keySet()+" ");
+				// otherwise just print the value
+				else
+					sb.append(histogram.get(path).values()+" ");
+			}
+			String fileName = getFileName(str);
+			if (!outputs.containsKey(fileName))
+			{
+				outputs.put(fileName, "true");
+				fileName = pathBeginning + fileName + "-" + ExperimentEngine.outputNumber;
+				String writeData = organizeOutput(sb.toString());
+				//System.out.println(fileName);
+				//System.out.println(writeData);
+				Utils.saveFile(fileName, writeData);
+			}
+		}
+	}
+	
+	public void saveSortedFilesAccordingToEventDriver() 
 	{
 		histogram = unionAll();
 		HashMap<String, String> outputs = new HashMap<String, String>();
@@ -106,6 +159,15 @@ public class CompareMatching {
 		return out;
 	}
 	
+	private String organizeOutput(String s)
+	{
+		StringTokenizer st = new StringTokenizer(s, "[],");
+		String output = "";
+		//System.out.println("******token count: " + st.countTokens());
+		while (st.hasMoreTokens())
+			output += st.nextToken();
+		return output;
+	}
 	
 	private String getPath(String filename) {
 		int lastIndex = ExperimentEngine.outputFileName.get(0).lastIndexOf('/');
@@ -125,6 +187,19 @@ public class CompareMatching {
 	{
 		int lastIndex = s.lastIndexOf('|');
 		return s.substring(lastIndex+1);
+	}
+	
+	private String getFileName(String s)
+	{
+		int lastIndex = s.lastIndexOf('|');
+		int beginIndex = s.lastIndexOf('/');
+		return s.substring(beginIndex+1, lastIndex);
+	}
+	
+	private String getFilePath(String s)
+	{
+		int lastIndex = s.lastIndexOf('|');
+		return s.substring(0, lastIndex);
 	}
 	
 }
