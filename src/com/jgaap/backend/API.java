@@ -636,7 +636,7 @@ public class API {
 				
 						/* ekinoguz */
 						for (EventDriver eventDriver : eventDrivers) {
-							char[] originalText = document.getText().clone();
+							String originalText = new String(document.getText());
 							if (originalList.size() > 0) {
 								while (originalListIndex < originalList.size() && !originalList.get(originalListIndex++).equals(CanonicizerFactory.getCanonicizer("Null Canonicizer")))
 									canonicizerList.add(originalList.get(originalListIndex-1));
@@ -658,7 +658,7 @@ public class API {
 								throw new Exception("Could not Eventify with "+eventDriver.displayName()+" on File:"+document.getFilePath()+" Title:"+document.getTitle(),e);
 							}
 							canonicizerList.clear();
-							document.setText(originalText);
+							document.setText(originalText.toCharArray());
 						}
 						document.readStringText("");
 					} catch (LanguageParsingException e) {
