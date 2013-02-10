@@ -58,7 +58,9 @@ public class JGAAP {
     	
     	BasicConfigurator.configure();
     	logger.setLevel(Level.INFO);
-    	
+    	//args = new String[2];
+    	//args[0] = "-cmjv";
+    	//args[1] = "../experiments/compare-matching/ngram-exp-config-eclipse";
     	if (args.length == 0) {
     		mainLogger.info("Starting GUI");
             javax.swing.SwingUtilities.invokeLater(new Runnable() {
