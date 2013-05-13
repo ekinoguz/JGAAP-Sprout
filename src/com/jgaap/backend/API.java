@@ -738,11 +738,6 @@ public class API {
 			logger.info("Training " + analysisDriver.displayName());
 			analysisDriver.train(knownDocuments);
 			logger.info("Finished Training "+analysisDriver.displayName());
-			/* ekinoguz */
-			// be careful with anonymous documents
-			if (CLI.justValues == true)
-				continue;
-			/* ekinoguz */
 			if (analysisDriver instanceof ValidationDriver) {
 				for (Document knownDocument : knownDocuments) {
 					analysisExecutor.submit(new AnalysisWorker(knownDocument, analysisDriver));

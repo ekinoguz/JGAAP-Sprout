@@ -32,7 +32,7 @@ package com.jgaap.generics;
  */
 public class Event implements Comparable<Object> {
 
-    private String data;
+    public String data;
     private EventDriver eventDriver;
 
     /** Create a new event given a character representation of the event **/

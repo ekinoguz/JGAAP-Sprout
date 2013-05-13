@@ -40,7 +40,6 @@ import com.jgaap.generics.*;
 @SuppressWarnings("static-access")
 public class CLI {
 	
-	public static boolean justValues = false;
 
 	static Options options = new Options();
 	static Option help = OptionBuilder
@@ -180,7 +179,6 @@ public class CLI {
 			System.exit(0);
 		} else if (cmd.hasOption("cmjv")) {
 			String eeFile = cmd.getOptionValue("cmjv");
-			justValues = true;
 			ExperimentEngine.runExperiment(eeFile);
 			new CompareMatching(1); /* ekinoguz */
 			System.exit(0);

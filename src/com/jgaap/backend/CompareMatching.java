@@ -38,7 +38,7 @@ public class CompareMatching {
 		String path;
 		int lastIndex = ExperimentEngine.outputFileName.get(0).lastIndexOf('/');
 		String pathBeginning = ExperimentEngine.outputFileName.get(0).substring(0, lastIndex+1);
-		
+		System.out.println(histogram);
 		ArrayList<String> eventDrivers = new ArrayList<String>();
 		for (String str : histogram.keySet())
 		{
@@ -111,6 +111,7 @@ public class CompareMatching {
 		HashMap<String, LinkedHashMap<Event, Double>> out = new HashMap<String, LinkedHashMap<Event,Double>>();
 		for (String d : EventMap.getValueHistogram().keySet())
 		{
+			System.out.println("UnionAll: " + d);
 			ImmutableMap<Event, Double> immutable = EventMap.getValueHistogram().get(d);
 			HashMap<Event, Double> hashmap = new HashMap<Event, Double>();
 			
