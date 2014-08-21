@@ -1,3 +1,10 @@
+**This is SPROUT (sprout.ics.uci.edu) fork of JGAAP, which is owned by EVL.**
+This version supports combining multiple features each with their own canonicizers.
+Check README-JGAAP and README-input-doc for additional information.
+Use it in your own risk. Feel free to ask questions if you have.
+
+*Below goes the original README of JGAAP*
+
 JGAAP (Java Graphical Authorship Attribution Program)
 From the Evaluating Variation in Language (EVL) Lab http://evllabs.com
 
