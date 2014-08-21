@@ -1,0 +1,196 @@
+List of Input Features:
+* Use the part before '-' as input (without extra tabs)
+
+Canonicizers:
+     
+     Used canonicizers list: Unify Case&Strip Punctuation&Strip numbers&Strip Null Characters&Normalize Whitespace&Normalize ASCII
+
+     Normalize ASCII 			- Strip all non-ASCII, non-printing characters from the text.  Whitespace is preserved.
+     Normalize Whitespace 		- Converts all whitespace characters (newline, space and tab) to a single space.
+     Punctuation Separator 		- Whitespace pad all punctuation
+     Separator                     - Used to separate canonocizers for each eventDriver
+     -Strip AlphaNumeric           - Strip all non-punctuation/non-whitespace characters from the text.
+     Strip Null Characters 		- Strip Null (0x00) characters from text
+     Strip numbers 				- Converts numbers to a single 0
+     Strip Punctuation 			- Strip all punctuation characters from the text.
+     Strip vowels                  - Strip all vowels from the text.
+     Unify Case 				- Converts all text to lower case.
+     Word edges Punctuation Stripper - Removes all punctuation that is at a beginning or an end of a word
+
+EventDriver:
+
+     All 9 Features with respective canonicizers: (Separator)(Separator)(Separator)(Word edges Punctuation Stripper&Unify Case)(Separator)(Separator)(Separator)(Separator)(Word edges Punctuation Stripper&Unify Case),9F_Average Sentence Length&9F_Average Syllables in Word&9F_Character Space&9F_Complexity&9F_Flesch Reading Ease Score&9F_Gunning-Fog Readability Index&9F_Letter Space&9F_Sentence Count&9F_Unique Words Count		
+     
+     9F_Average Sentence Length - The total number of words
+     9F_Average Syllables in Word - Average syllables in word
+     9F_Character Space - The total number of characters in the document, spaces included.
+     9F_Complexity - Ratio of unique words to total number of words in the document.
+     9F_Flesch Reading Ease Score - Flesch Reading Ease Score
+     9F_Gunning-Fog Readability Index - Gunning-Fog Readability Index
+     9F_Letter Space - The total number of letters (excluding spaces and punctuation).
+     9F_Sentence Count - Number of sentences in the document.
+     9F_Unique Words Count - Number of unique words in the document
+     Binned Frequencies - Discretized (by truncation) ELP lexical frequencies
+     Binned Reaction Times - Discretized (by truncation) ELP lexical decision latencies
+     Binned naming times - Discretized (by truncation) ELP naming latencies
+     Character NGrams - Groups of N successive characters
+     Characters - UNICODE Characters
+     Coarse POS Tagger - A simplification of the normal part of speech tagger
+     Definition Events - Replaces words with their definitions
+     First Word In Sentence - First Word In Sentence
+     Leave K Out Character NGram - Leave out all permutations k characters from a word gram of size n
+     Leave K Out Word NGram - Leave out all permutations k words from a word gram of size n
+     Lexical Decision Reaction Times - Reaction times from English Lexicon Project
+     Lexical Frequencies - (Log Scaled) HAL frequencies from English Lexicon Project
+     M--N letter Words - Words with between M and N letters
+     MW Function Words - Function Words from Mosteller-Wallace
+     Naming Reaction Times - Naming Times from English Lexicon Project
+     New Lines - Events are split on contiguous groups of \n
+     POS - Parts of Speech
+     POS NGrams - Groups of N Successive Parts-of-Speach
+     Punctuation - Non alphanumeric nor whitspace
+     Rare Words - Rare words such as Words appearing only once or twice per document
+     Sentence Length - Sentence length (With words)
+     Sentences - Full sentences including punctuation
+     Sorted Character NGram - The characters in each ngram are alphabetically sorted
+     Sorted Word NGram - The words in each ngram are alphabetically sorted
+     Stanford Named Entity Recognizer - A Named Entity Recognizer developed by the Stanford NLP Group http://nlp.stanford.edu
+     Stanford Part of Speech - A Part of Speech Tagger using the MaxentTagger developed by the Stanford NLP Group http://nlp.stanford.edu
+     Stanford Part of Speech NGrams - A sliding window of N parts of speech as tagged by the Stanford PoS Tagger.
+     Suffices - Last (default=3) characters of Events (default=words)
+     Syllable Transitions - NGrams of Syllable Numbers
+     Syllables Per Word - Number of vowel clusters/word (min 1)
+     Vowel M--N letter Words - Vowel-initial Words with between M and N letters
+     Vowel-initial Words - Words beginning with A, E, I, O, U (or lowercase equivalent)
+     Word Lengths - Lengths of Word-Events
+     Word NGrams - Groups of N Successive Words
+     Word stems - Word stems derived from the Porter stemmer (English only)
+     Word stems w/ Irregular - Word stems from the Porter Stemmer with ability to handle irregular nouns and verbs
+     Words - Words (White Space as Separators)
+
+     ************** Write Prints ****************
+
+     _WP_Average characters per word - The total number of letters.
+     _WP_Character Count - The total number of letters.
+     _WP_Digits - The frequencies of all distinct matches of a given regular expression in the document.
+     _WP_Digits Percentage - The frequency of matches of a given regular expression in the document.
+     _WP_Function Words - 512 common function words, used by Koppel et al. in Koppel, 2005.
+     _WP_Letters - Groups of N successive letters, N = 1
+     _WP_Letters Percentage - The frequency of matches of a given regular expression in the document. [A-Za-z]
+     _WP_Misspelled Words - Frequencies of misspelled words out of a list of 5,513 common misspellings.
+     _WP_POS Bigrams - Stanford Log-linear Part-Of-Speech Tagger for POS N-grams
+     _WP_POS Tags - Stanford Log-linear Part-Of-Speech Tagger
+     _WP_POS Trigrams - Stanford Log-linear Part-Of-Speech Tagger for POS N-grams
+     _WP_Punctuation - Punctuation symbols like . , ! etc.
+     _WP_Special Characters - Frequencies of special characters, e.g. ~, @ etc.
+     _WP_Three Digit Numbers - The frequencies of all distinct matches of a given regular expression in the document.
+     _WP_Top Letter bigrams - Groups of N successive letters, N = 2
+     _WP_Top Letter trigrams - Groups of N successive letters, N = 3
+     _WP_Two Digit Numbers - The frequencies of all distinct matches of a given regular expression in the document.
+     _WP_Uppercase Letters Percentage - The frequency of matches of a given regular expression in the document. [A-Z]
+     _WP_Word Bigrams - Groups of N Successive Words
+     _WP_Word Lengths - Lengths of Word-Events
+     _WP_Word Trigrams - Groups of N Successive Words
+     _WP_Words - Frequencies of various words in the text, case insensitive and without punctuations.
+
+     ***************************************************************************
+     WritePrints with respective canonocizers(ready to use in Experiment Engine):
+     ***************************************************************************
+     (Separator),_WP_Average characters per word
+     (Separator),_WP_Character Count
+     (Separator),_WP_Digits
+     (Separator),_WP_Digits Percentage
+     (Unify Case&Word edges Punctuation Stripper),_WP_Function Words
+     (Unify Case),_WP_Letters
+     (Separator),_WP_Letters Percentage
+     (Unify Case&Word edges Punctuation Stripper),_WP_Misspelled Words
+     (Separator),_WP_POS Bigrams
+     (Separator),_WP_POS Tags
+     (Separator),_WP_POS Trigrams
+     (Separator),_WP_Punctuation
+     (Separator),_WP_Special Characters
+     (Separator),_WP_Three Digit Numbers
+     (Unify Case),_WP_Top Letter bigrams
+     (Unify Case),_WP_Top Letter trigrams
+     (Separator),_WP_Two Digit Numbers
+     (Separator),_WP_Uppercase Letters Percentage
+     (Unify Case&Word edges Punctuation Stripper),_WP_Word Bigrams
+     (Word edges Punctuation Stripper),_WP_Word Lengths
+     (Unify Case&Word edges Punctuation Stripper),_WP_Word Trigrams
+     (Unify Case&Word edges Punctuation Stripper),_WP_Words
+
+     ***************************************************************************
+     All WritePrints with canonicizers:
+     ***************************************************************************
+     (Separator)(Separator)(Separator)(Separator)(Unify Case&Word edges Punctuation Stripper)(Unify Case)(Separator)(Unify Case&Word edges Punctuation Stripper)(Separator)(Separator)(Separator)(Separator)(Separator)(Separator)(Unify Case)(Unify Case)(Separator)(Separator)(Unify Case&Word edges Punctuation Stripper)(Word edges Punctuation Stripper)(Unify Case&Word edges Punctuation Stripper)(Unify Case&Word edges Punctuation Stripper),_WP_Average characters per word&_WP_Character Count&_WP_Digits&_WP_Digits Percentage&_WP_Function Words&_WP_Letters&_WP_Letters Percentage&_WP_Misspelled Words&_WP_POS Bigrams&_WP_POS Tags&_WP_POS Trigrams&_WP_Punctuation&_WP_Special Characters&_WP_Three Digit Numbers&_WP_Top Letter bigrams&_WP_Top Letter trigrams&_WP_Two Digit Numbers&_WP_Uppercase Letters Percentage&_WP_Word Bigrams&_WP_Word Lengths&_WP_Word Trigrams&_WP_Words
+
+     ***************************************************************************
+     All WritePrints except Word NGrams
+     ***************************************************************************
+     (Separator)(Separator)(Separator)(Separator)(Unify Case&Word edges Punctuation Stripper)(Unify Case)(Separator)(Unify Case&Word edges Punctuation Stripper)(Separator)(Separator)(Separator)(Separator)(Separator)(Separator)(Unify Case)(Unify Case)(Separator)(Separator)(Word edges Punctuation Stripper),_WP_Average characters per word&_WP_Character Count&_WP_Digits&_WP_Digits Percentage&_WP_Function Words&_WP_Letters&_WP_Letters Percentage&_WP_Misspelled Words&_WP_POS Bigrams&_WP_POS Tags&_WP_POS Trigrams&_WP_Punctuation&_WP_Special Characters&_WP_Three Digit Numbers&_WP_Top Letter bigrams&_WP_Top Letter trigrams&_WP_Two Digit Numbers&_WP_Uppercase Letters Percentage&_WP_Word Lengths
+
+
+Event Culling:
+     Coefficient of Variation - Analyze N events with the lowest Coefficient of Variation
+     Index of Dispersion - Analyze N events with the highest index of dispersion
+     Information Gain - Analyze only the N most or least informative events across all documents
+     Interquartile Range - Ananlze N events with the highest Interquartile Range
+     Least Common Events - Analyze only the N least common events across all documents
+     Mean Absolute Deviation - Analyze N events with the highest Mean Absolute Deviation
+     Most Common Events - Analyze only the N most common events across all documents
+     Range Culler - Analyze N events with the highest ranges
+     Standard Deviation Culler - Analyze N events with highest standard deviation
+     Variance Culler - null
+     Weighted Variance - Analyze N events with highest weighted variance
+     X-treme Culler - All Events that appear in all samples.
+
+Anaylsis:
+     Burrows Delta - Burrow's Delta with Argamon's Formula
+     Centroid Driver - Computes one centroid per Author.
+     Centroids are the average relitive frequency of events over all docuents provided.
+     i=1 to n ?frequencyIn_i(event)/n
+     JW Cross Entropy - Juola-Wyner Cross Entropy
+     LDA - Fisher Linear Discriminant Analysis
+     Mahalanobis Distance - Generalized Squared Interpoint Distance
+     Markov Chain Analysis - First Order Markov Chain Analysis
+     Nearest Neighbor Driver - Assigns authorship labels by using a nearest-neighbor approach on a given distance/divergence function. 
+     Null Analysis - Prints all event sets received
+     Null Histogram Analysis - Prints a Histogram of Event Sets
+     Thin Cross Entropy - JW Cross Entropy using event transitions in place of trie routs
+     WEKA J48 Decision Tree Classifier - J48 Decision Tree Classifier, Courtesy of WEKA
+     WEKA Least Median Squared - Least Median Squared Linear Regression, Courtesy of WEKA
+     WEKA Linear Regression - Linear Regression, Courtesy of WEKA
+     WEKA Multilayer Perceptron - Multilayer Perceptron, Courtesy of WEKA
+     WEKA Naive Bayes Classifier - Naive Bayes Classifier, Courtesy of WEKA
+     WEKA RBF Network - Radial Basis Function Network, Courtesy of WEKA
+     WEKA SMO - Sequential Minimal Optimization, Courtesy of WEKA
+     WEKA Voted Perceptron - Voted Perceptron, Courtesy of WEKA
+
+Please Note:  If you choose the Frequency Centroid Driver or Nearest Neighbor Driver, you will have to 
+select a Distance Function.  You do not have to choose a distance function for the other analysis methods.
+
+Distance Funtions:
+     Angular Separation Distance - Angular Separation Distance
+     Bhattacharyya Distance - Bhattacharyya Distance
+     Bray Curtis Distance - Bray Curtis Distance
+     Canberra Distance - Canberra Distance Nearest Neighbor Classifier
+     *Chi Square Distance - Chi Square Distance
+     Chord Distance - Chord Distance
+     *Cosine Distance - Normalized Dot-Product Nearest Neighbor Classifier
+     Hellinger Distance - 1/sqrt(2) * sqrt( sum( (sqrt(pi)-sqrt(qi))^2 ) )
+     *Histogram Distance - Histogram Distance (also known as Euclidean or L2 Norm)
+     Histogram Intersection Distance - Histogram Intersection Distance
+     Intersection Distance - Event type set intersection divided by event type set union
+     KS Distance - Nominal Kolmogorov-Smirnov distance (also known as the Minkowski L-infinity metric)
+     Kendall Correlation Distance - Kendall Correlation Distance Nearest Neighbor Classifier
+     Kendall Correlation TauB - Method for calculating tau as suggested by William Knight
+     Keselj-weighted Distance - Histogram Distance (L2 Norm) with Keselj-weighting based on overall frequency
+     *Kullback Leibler Distance - Kullback Leibler Distance Nearest Neighbor Classifier
+     *Manhattan Distance - Manhattan Distance (aka taxicab or Minkowski L1 distance)
+     Matusita Distance - Matusita Distance
+     Pearson Correlation Distance - Pearson Correlation Distance Nearest Neighbor Classifier
+     RN Cross Entropy - Ryan-Noecker Cross Entropy (Faster)
+     Soergle Distance - Soergle Distance
+     Stamatatos Distance - Stamatatos Distance (2*(f(x)-g(x))/(f(x)+g(x)))^2
+     WED Divergence - Weighted Euclidean Distance (WED) Divergence
+     Wave Hedges Distance - Wave Hedges Distance
