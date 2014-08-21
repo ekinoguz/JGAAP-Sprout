@@ -1,7 +1,8 @@
 **This is SPROUT (sprout.ics.uci.edu) fork of JGAAP, which is owned by EVL.**
-This version supports combining multiple features each with their own canonicizers.
+This version supports combining multiple features each with their own canonicizers (only in CLI).
 Check README-JGAAP and README-input-doc for additional information.
-Use it in your own risk. Feel free to ask questions if you have.
+Use it in your own risk. No promises given and most of the original JGAAP functionality is not used in this fork (therefore might be broken).
+Feel free to ask questions if you have.
 
 *Below goes the original README of JGAAP*
 
